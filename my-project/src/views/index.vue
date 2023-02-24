@@ -1,10 +1,25 @@
 <script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const userName = ref('');
+const password = ref('');
+const logins = ref(true);
+const router = useRouter();
+
+function login() {
+    if (userName.value === 'test' && password.value === '1234') {
+        localStorage.setItem('token', 'ImLogin')
+        logins.value = false;
+        router.push('/home')
+    }
+}
 
 
 </script>
 
 <template>
-    <div>
+    <div v-if="logins">
         <div class="w-full min-h-screen flex flex-col justify-center items-center">
             <div class="w-[300px] text-lg font-bold border bg-gray-400">
                 <div class="flex w-full justify-start mt-2">

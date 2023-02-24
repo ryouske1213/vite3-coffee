@@ -4,8 +4,7 @@
 
 <template>
   <div>
-    <div class=" relative bg-slate-500">
-      <!-- <index class=" absolute inset-0 z-0" /> -->
+    <div class="relative bg-slate-300 w-full min-h-screen">
       <router-view />
     </div>
   </div>
