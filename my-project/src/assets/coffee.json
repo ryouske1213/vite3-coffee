@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name":"曼特寧 蘇門答臘",
+        "roast":"中深烘培",
+        "Origin":"亞洲",
+        "method":"濕剝式處理",
+        "flavour": "焦糖、堅果、奶油、尾韻蜂蜜焦糖",
+        "unit": 200,
+        "price": 300,
+        "img":"Group_1.png",
+        "img1":"Group-1.png"
+    },
+    {
+        "id": 2,
+        "name":"瓜地馬拉 薇薇特南果",
+        "roast":"中淺烘培",
+        "Origin":"中美洲",
+        "method":"水洗式處理",
+        "flavour": "花香、焦糖、黑莓、李子果酸、蜂蜜與烤榛果",
+        "unit": 200,
+        "price": 350,
+        "img":"Group_2.png",
+        "img1":"Group-2.png"
+    },
+    {
+        "id": 3,
+        "name":"夏威夷 可娜",
+        "roast":"中淺烘培",
+        "Origin":"大洋洲",
+        "method":"水洗式處理",
+        "flavour": "奶油、麥芽、楓糖、杏仁、黑巧克力、核桃",
+        "unit": 200,
+        "price": 400,
+        "img":"Group_3.png",
+        "img1":"Group-3.png"
+    },
+    {
+        "id": 4,
+        "name":"哥倫比亞",
+        "roast":"中深烘培",
+        "Origin":"南美洲",
+        "method":"蜜-處理法",
+        "flavour": "蘋果、核果、堅果、麥茶",
+        "unit": 200,
+        "price": 450,
+        "img":"Group_4.png",
+        "img1":"Group-4.png"
+    },
+    {
+        "id": 5,
+        "name":"耶加雪夫",
+        "roast":"中淺烘培",
+        "Origin":"非洲",
+        "method":"日曬式處理",
+        "flavour": "柑橘、花香、水果與蜂蜜、果酸",
+        "unit": 200,
+        "price": 500,
+        "img":"Group_5.png",
+        "img1":"Group-5.png"
+    },
+    {
+        "id": 6,
+        "name":"肯亞 AA",
+        "roast":"中淺烘培",
+        "Origin":"非洲",
+        "method":"日曬式處理",
+        "flavour": "稻草、檸檬柑橘香、楓糖、核桃、咖啡果肉",
+        "unit": 200,
+        "price": 500,
+        "img":"Group_6.png",
+        "img1":"Group-6.png"
+    }
+]

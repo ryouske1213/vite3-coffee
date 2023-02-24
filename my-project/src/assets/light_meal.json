@@ -1,0 +1,63 @@
+[
+    {
+        "id":1,
+        "name":"南方涼麵",
+        "price": 350,
+        "img": "meal1.png"
+    },
+    {
+        "id":2,
+        "name":"蝦仁涼麵",
+        "price": 300,
+        "img": "meal2.png"
+    },
+    {
+        "id":3,
+        "name":"墨西哥三明治",
+        "price": 250,
+        "img": "meal3.png"
+    },
+    {
+        "id":4,
+        "name":"手工泡芙",
+        "price": 100,
+        "img": "meal4.png"
+    },
+    {
+        "id":5,
+        "name":"煙燻牛肉沙拉",
+        "price": 240,
+        "img": "meal5.png"
+    },
+    {
+        "id":6,
+        "name":"紅酒牛肉燉飯",
+        "price": 380,
+        "img": "meal6.png"
+    },
+    {
+        "id":7,
+        "name":"抹茶拿鐵",
+        "price": 150,
+        "img": "drink1.png"
+    },
+    {
+        "id":8,
+        "name":"拿鐵",
+        "price": 120,
+        "img": "drink2.png"
+    },
+    {
+        "id":9,
+        "name":"巧克力牛奶",
+        "price": 160,
+        "img": "drink3.png"
+    },
+    {
+        "id":10,
+        "name":"烤布雷拿鐵",
+        "price": 180,
+        "img": "drink4.png"
+    }
+    
+]
