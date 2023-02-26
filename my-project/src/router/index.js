@@ -3,6 +3,7 @@ import Index from '../views/index.vue'
 import Home from '../views/Home/Home.vue'
 import About from '../views/Home/About.vue'
 import Coffee_bag from '../views/Home/Coffee_bag.vue'
+import Coffee_items from '../views/Home/Coffee_items.vue'
 import Shopping from '../views/Home/Shopping.vue'
 
 const Router = createRouter({
@@ -27,6 +28,11 @@ const Router = createRouter({
       path: '/Coffee_bag',
       name: 'Coffee_bag',
       component: Coffee_bag
+    },
+    {
+      path: '/Coffee_items/:id',
+      name: 'Coffee_items',
+      component: Coffee_items
     },
     {
       path: '/Shopping',
