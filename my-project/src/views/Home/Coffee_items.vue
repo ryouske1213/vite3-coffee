@@ -3,22 +3,43 @@ import header_1 from '../../components/header_1.vue'
 import footer_1 from '../../components/footer_1.vue'
 import Coffee_items from '../../assets/coffee.json'
 import { ref, reactive, onMounted, computed } from 'vue';
-import { useRoute } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 
 const items = reactive(Coffee_items);
 const id = ref(1);
-const name = ref('');
-const unit = ref(Number);
-const count = ref(0);
-const route = useRoute()
+const count = ref(1);
+const route = useRoute();
+const router = useRouter();
 
 onMounted(() => {
     id.value = route.params.id
 })
 
 const currentItem = computed(() => {
-    return items.find((item) => item.id == id.value);
+    return items.find((item) => item.id == id.value)
 })
+
+function add(){
+    count.value++
+}
+
+function sub(){
+    if(count.value > 1) {
+        count.value--
+    } else {
+        count = 1
+    }
+}
+
+function addToCart(){
+    const carts = JSON.parse(window.localStorage.getItem("carts")) ?? []
+    carts.push({
+        id: id.value,
+        count: count.value
+    });
+    window.localStorage.setItem("carts", JSON.stringify(carts))
+    router.push('/Shopping/')
+}
 
 </script>
 
@@ -46,16 +67,16 @@ const currentItem = computed(() => {
 
                         <div class="flex py-12 justify-evenly flex-wrap">
                             <div class="flex relative ">
-                                <div class="flex items-center cursor-pointer border px-4">
-                                    <div @click="sub">-</div>
+                                <div class="flex items-center cursor-pointer border px-4" @click="sub">
+                                    <div>-</div>
                                 </div>
 
                                 <div class="flex px-4 border items-center">
                                     <p>{{ count }}</p>
                                 </div>
 
-                                <div class="flex items-center cursor-pointer border px-4">
-                                    <div @click="add">+</div>
+                                <div class="flex items-center cursor-pointer border px-4" @click="add">
+                                    <div>+</div>
                                 </div>
                             </div>
 
