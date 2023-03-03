@@ -6,7 +6,7 @@ import Coffee_bag from '../views/Home/Coffee_bag.vue'
 import Coffee_items from '../views/Home/Coffee_items.vue'
 import Shopping from '../views/Home/Shopping.vue'
 
-const Router = createRouter({
+export const router = createRouter({
   history: createWebHashHistory(),
   routes: [
     {
@@ -42,4 +42,4 @@ const Router = createRouter({
 ]
 })
 
-export default Router
+export default router
