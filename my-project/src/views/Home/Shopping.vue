@@ -7,6 +7,7 @@ import { ref, reactive, computed, onMounted } from 'vue';
 
 const items = reactive(Coffee_items)
 const carts = ref([cart])
+const result = ref([])
 
 onMounted(() => {
   carts.value = JSON.parse(window.localStorage.getItem("carts")) ?? [];
@@ -19,13 +20,34 @@ const cartData = computed(() => {
   })
 })
 
-function del(id){
+function add(id) {
   carts.value.forEach((item) => {
     if(item.id == id) {
-      carts.value.splice(-1, 1)
+      item.count++
     }
   })
-  window.localStorage.setItem('coffee.carts', carts.value)
+}
+
+function sub(id){
+  carts.value.forEach((item, index) => {
+    if(item.id == id) {
+      item.count--
+    }
+    if(item.count <= 0) {
+      item.count = 1
+      carts.value.splice(index, 1)
+    }
+    window.localStorage.setItem('carts', JSON.stringify(carts.value))
+  })
+}
+
+function del(id){
+  carts.value.forEach((item, index) => {
+    if(item.id == id) {
+      carts.value.splice(index, 1)
+    }
+  })
+  window.localStorage.setItem('carts', JSON.stringify(carts.value))
 }
 
 
