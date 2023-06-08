@@ -1,14 +1,25 @@
 <script setup>
-import { ref } from 'vue';
+import axios from 'axios';
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
 const userName = ref('');
 const password = ref('');
 const logins = ref(true);
 const router = useRouter();
+const loginData = ref();
+
+onMounted(async() => {
+    try {
+        const { data } = await axios.post('http://localhost:3000/api/login')
+        return loginData.value = data
+    } catch (error) {
+        console.log(error)
+    }
+})
 
 function login() {
-    if (userName.value === 'test' && password.value === '1234') {
+    if (loginData.value.username === 'test' && loginData.value.password === '1234') {
         localStorage.setItem('token', 'ImLogin')
         logins.value = false;
         router.push('/home')
@@ -31,9 +42,9 @@ function login() {
                     <input type="text" v-model="password">
                 </div>
                 <div class="w-full mt-2 flex justify-center mb-2">
-                    <div class="w-20 text-center border" @click="login()">
+                    <button class="w-20 text-center border" @click="login()">
                         <p>登入</p>
-                    </div>
+                    </button>
                 </div>
             </div>
             <div class="w-full flex justify-center">
