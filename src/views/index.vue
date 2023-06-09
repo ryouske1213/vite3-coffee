@@ -9,17 +9,17 @@ const logins = ref(true);
 const router = useRouter();
 const loginData = ref();
 
-onMounted(async() => {
-    try {
-        const { data } = await axios.post('http://localhost:3000/api/login')
-        return loginData.value = data
-    } catch (error) {
-        console.log(error)
-    }
-})
+// onMounted(async() => {
+//     try {
+//         const { data } = await axios.post('http://localhost:3000/api/login')
+//         return loginData.value = data
+//     } catch (error) {
+//         console.log(error)
+//     }
+// })
 
 function login() {
-    if (loginData.value.username === 'test' && loginData.value.password === '1234') {
+    if (userName.value === 'test' && password.value === '1234') {
         localStorage.setItem('token', 'ImLogin')
         logins.value = false;
         router.push('/home')
