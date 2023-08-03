@@ -27,7 +27,7 @@ function sub(){
     if(count.value > 1) {
         count.value--
     } else {
-        count = 1
+        count.value = 1
     }
 }
 
