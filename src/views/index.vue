@@ -32,7 +32,7 @@ function login() {
 <template>
     <div v-if="logins">
         <div class="w-full min-h-screen flex flex-col justify-center items-center">
-            <div class="w-[300px] text-lg font-bold border bg-gray-400">
+            <div class="w-[300px] text-lg font-bold border bg-gray-400 rounded-md">
                 <div class="flex w-full justify-start mt-2">
                     <p class="mx-2">帳號:</p>
                     <input type="text" v-model="userName">

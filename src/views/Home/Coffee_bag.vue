@@ -12,7 +12,7 @@ const items = reactive(Coffee_items)
 <template>
   <div class="h-screen w-full showbackground">
     <div class=" h-full w-full overflow-y-auto">
-      <header_1 class="text-black" />
+      <header_1 class="text-black font-bold" />
       <main>
         <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-4 justify-items-center">
           <card v-for="item in items" :key="item.id" v-bind="item" />

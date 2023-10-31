@@ -7,7 +7,7 @@ import footer_1 from '../../components/footer_1.vue'
   <div class="h-screen w-screen relative overflow-hidden">
     <img class=" object-cover opacity-80 -z-50 h-full w-full" src="@/assets/background/咖啡背景02.jpg" alt="" />
     <div class=" absolute top-0 h-full w-full overflow-y-auto">
-      <header_1 class="text-white" />
+      <header_1 class="text-white font-bold" />
       <main>
         <div class="flex flex-wrap justify-around py-16">
           <div class="flex flex-col items-center justify-center">

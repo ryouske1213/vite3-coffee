@@ -11,7 +11,7 @@ import footer_1 from "../../components/footer_1.vue";
       alt=""
     />
     <div class="absolute top-0 overflow-y-auto h-full w-full">
-      <header_1 class="text-white" />
+      <header_1 class="text-white font-bold" />
 
       <main>
         <div class="flex flex-wrap justify-center items-center py-24">

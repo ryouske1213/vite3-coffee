@@ -59,7 +59,7 @@ function del(id){
   <div class="h-screen w-screen relative overflow-hidden">
     <img class="object-cover opacity-80 -z-50 h-full w-full" src="@/assets/background/購物車背景.png" alt="" />
     <div class="absolute top-0 h-full w-full overflow-y-auto">
-      <header_1 />
+      <header_1 class="font-bold" />
 
       <div>
         <div class="text-3xl font-bold px-20 py-6">
