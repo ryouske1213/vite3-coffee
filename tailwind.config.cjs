@@ -5,7 +5,11 @@ module.exports = {
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'home': 'rgb(251,251,251)', // 自定義顏色名稱和對應的色碼
+      },
+    },
   },
   plugins: [],
 }

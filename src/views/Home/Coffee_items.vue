@@ -47,7 +47,7 @@ function addToCart(){
     <div class="h-screen w-screen relative overflow-hidden">
         <img class=" object-cover opacity-80 -z-50 h-full w-full" src="@/assets/background/購物車背景.png" alt="" />
         <div class=" absolute top-0 h-full w-full overflow-y-auto">
-            <header_1 class="font-bold" />
+            <header_1 />
             <div class="flex flex-wrap justify-evenly pt-20">
                 <div>
                     <img :src="`/image/${currentItem.img}`">

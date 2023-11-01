@@ -1,20 +1,21 @@
 <script setup>
 import header_1 from "../../components/header_1.vue";
 import footer_1 from "../../components/footer_1.vue";
+import carouse from "../../components/carouse.vue"
 </script>
 
 <template>
-  <div class="h-screen w-screen relative overflow-hidden bg-gray-600">
-    <img
-      class="object-cover opacity-80 -z-50 h-full w-full"
-      src="@/assets/background/咖啡背景.jpg"
+  <div class="bg-home h-screen w-screen relative overflow-hidde">
+    <!-- <img
+      class="object-cover -z-50 h-full w-full"
+      src="@/assets/background/background-cofe.jpg"
       alt=""
-    />
+    /> -->
     <div class="absolute top-0 overflow-y-auto h-full w-full">
-      <header_1 class="text-white font-bold" />
-
+      <header_1 class="text-black" />
       <main>
-        <div class="flex flex-wrap justify-center items-center py-24">
+        <carouse />
+        <!-- <div class="flex flex-wrap justify-center items-center py-24">
           <div>
             <div class="relative flex cursor-pointer">
               <router-link to="/About">
@@ -40,9 +41,9 @@ import footer_1 from "../../components/footer_1.vue";
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </main>
-      <footer_1 class="text-white"/>
+      <!-- <footer_1 class="text-white"/> -->
     </div>
   </div>
 </template>
