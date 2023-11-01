@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <div class="md:flex px-4 pt-4 md:items-center justify-center">
+    <div class="md:flex mx-4 mt-4 md:items-center justify-center">
       <div
         class="flex justify-center items-center md:flex-nowrap"
       >

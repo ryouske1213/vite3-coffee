@@ -13,7 +13,7 @@ const CarouselData = reactive(carousel)
   <Carousel :wrap-around="true" :autoplay="3000" :transition="1000">
     <Slide v-for="slide in CarouselData" :key="slide">
       <!-- <div class="carousel__item">{{ slide.img }}</div> -->
-      <img class="w-[800px]" :src="`/image/${slide.img}`" alt="">
+      <img class="w-[600px]" :src="`/image/${slide.img}`" alt="">
       <!-- <img src="" alt=""> -->
     </Slide>
 
