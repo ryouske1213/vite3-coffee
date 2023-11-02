@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Index from '../views/index.vue'
 import Home from '../views/Home/Home.vue'
 import About from '../views/Home/About.vue'
+import Question from '../views/Home/Question.vue'
 import Coffee_bag from '../views/Home/Coffee_bag.vue'
 import Coffee_items from '../views/Home/Coffee_items.vue'
 import Shopping from '../views/Home/Shopping.vue'
@@ -28,6 +29,11 @@ export const router = createRouter({
       path: '/Coffee_bag',
       name: 'Coffee_bag',
       component: Coffee_bag
+    },
+    {
+      path: '/Question',
+      name: 'Question',
+      component: Question
     },
     {
       path: '/Coffee_items/:id',

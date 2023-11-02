@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'home': 'rgb(251,251,251)', // 自定義顏色名稱和對應的色碼
+        'home': 'rgb(251,251,251)',
       },
     },
   },
