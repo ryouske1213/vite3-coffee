@@ -8,7 +8,7 @@ import footer_1 from "../../components/footer_1.vue";
     <div class="absolute top-0 h-full w-full overflow-y-auto">
       <header_1 />
       <main>
-        <div class="w-full mt-[90px] flex justify-center">
+        <div class="w-full mt-[100px] flex justify-center">
           <div class="w-[1000px]">
             <div class="my-12 text-3xl font-bold">
               <h1 class="text-gray-500 text-center">關於平凡</h1>

@@ -31,7 +31,7 @@ const closeDropdown = () => {
         class="m-4 relative text-center dropdown-menu"
       >
         <div class="h-full flex dropdown items-center">
-          <router-link to="/Coffee_bag" class="w-full md:w-auto text-xl"
+          <router-link to="/About" class="w-full md:w-auto text-xl"
             >關於我們
           </router-link>
         </div>
@@ -68,7 +68,7 @@ const closeDropdown = () => {
       </div>
     </div>
     <div class="border-b-2 border-b-gray-300 mt-2"></div>
-    <dropdownWindow v-if="isOpen" />
+    <!-- <dropdownWindow v-if="isOpen" /> -->
   </div>
 </template>
 
