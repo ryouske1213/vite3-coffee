@@ -12,8 +12,6 @@ const SingleData = ref([])
 const Zhongpai = ref([])
 const Deep = ref([])
 
-console.log(SingleData.value)
-
 onMounted(() => {
   items.filter((item) => {
     if(item.id > 100 && item.id < 200) {
@@ -27,14 +25,6 @@ onMounted(() => {
     }
   })
 })
-
-// const SingleProduct = computed(() => {
-//   items.filter((item) => {
-//     if(item.id > 100 && item.id < 200) {
-//       SingleData.value.push(item)
-//     }
-//   })
-// })
 
 
 
@@ -79,7 +69,7 @@ onMounted(() => {
           <card v-for="item in items" :key="item.id" v-bind="item" />
         </div> -->
       </main>
-      <!-- <footer_1 class="text-black" /> -->
+      <footer_1 class="text-black" />
     </div>
   </div>
 </template>

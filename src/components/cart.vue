@@ -8,7 +8,7 @@ const props = defineProps(['id', 'name', 'price', 'unit', 'img1', 'count'])
     <div class="md:flex w-full my-2">
       <div class="md:flex">
         <div class="w-full md:w-[30%] flex justify-center md:justify-start md:ml-10">
-          <img :src="`/image/${img1}`" alt="">
+          <img :src="img1" alt="">
         </div>
         <div class="md:w-40 md:flex text-center items-center md:ml-10">
           {{ name }}

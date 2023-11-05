@@ -8,6 +8,7 @@ import { useRouter, useRoute } from "vue-router";
 const items = reactive(Coffee_items);
 const id = ref(1);
 const count = ref(1);
+const currentItem = items.find((item) => item)
 const route = useRoute();
 const router = useRouter();
 
@@ -15,9 +16,6 @@ onMounted(() => {
     id.value = route.params.id
 })
 
-const currentItem = computed(() => {
-    return items.find((item) => item.id == id.value)
-})
 
 function add(){
     count.value++
@@ -48,9 +46,9 @@ function addToCart(){
         <img class=" object-cover opacity-80 -z-50 h-full w-full" src="@/assets/background/購物車背景.png" alt="" />
         <div class=" absolute top-0 h-full w-full overflow-y-auto">
             <header_1 />
-            <div class="flex flex-wrap justify-evenly pt-[110px]">
+            <div class="flex h-full items-center flex-wrap justify-evenly pt-[110px]">
                 <div>
-                    <img :src="`/image/${currentItem.img}`">
+                    <img :src="currentItem.img">
                 </div>
                 <div class="flex-wrap">
                     <p class="text-4xl font-bold pb-14 pt-8">{{ currentItem.name }}</p>

@@ -6,6 +6,7 @@ import Question from '../views/Home/Question.vue'
 import Coffee_bag from '../views/Home/Coffee_bag.vue'
 import Coffee_items from '../views/Home/Coffee_items.vue'
 import Shopping from '../views/Home/Shopping.vue'
+import Login from '../views/login/index.vue'
 
 export const router = createRouter({
   history: createWebHashHistory(),
@@ -44,6 +45,11 @@ export const router = createRouter({
       path: '/Shopping',
       name: 'Shopping',
       component: Shopping
+    },
+    {
+      path: '/Login/index',
+      name: 'Login',
+      component: Login
     }
 ]
 })

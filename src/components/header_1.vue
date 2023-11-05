@@ -15,57 +15,58 @@ const closeDropdown = () => {
 
 <template>
   <div class="fixed bg-home text-black w-full z-50">
-    <div class="md:flex h-20 mx-4 mt-4 md:items-center justify-center">
-      <router-link
-        to="/Home"
-        class="flex justify-center items-center md:flex-nowrap"
-      >
-        <img
-          class="w-16 justify-center items-center"
-          src="../assets/background/Logo.png"
-          alt=""
-        />
-        <img class="h-14 pl-2" src="../../image/ordinary coffee.png" alt="" />
-      </router-link>
-      <div
-        class="m-4 relative text-center dropdown-menu"
-      >
-        <div class="h-full flex dropdown items-center">
-          <router-link to="/About" class="w-full md:w-auto text-xl"
-            >關於我們
-          </router-link>
+    <div class="flex justify-around items-center">
+      <div class="w-full md:flex h-20 mx-4 mt-4 md:items-center justify-center">
+        <router-link
+          to="/Home"
+          class="flex justify-center items-center md:flex-nowrap"
+        >
+          <img
+            class="w-16 justify-center items-center"
+            src="../assets/background/Logo.png"
+            alt=""
+          />
+          <img class="h-14 pl-2" src="../../image/ordinary coffee.png" alt="" />
+        </router-link>
+        <div class="m-4 relative text-center dropdown-menu">
+          <div class="h-full flex dropdown items-center">
+            <router-link to="/About" class="w-full md:w-auto text-xl"
+              >關於我們
+            </router-link>
+          </div>
+        </div>
+        <div
+          class="m-4 relative text-center dropdown-menu"
+          @mouseenter="openDropdown"
+          @mouseleave="closeDropdown"
+        >
+          <div class="h-full flex dropdown items-center">
+            <router-link to="/Coffee_bag" class="w-full md:w-auto text-xl"
+              >線上購物
+            </router-link>
+            <!-- <i class="fa-solid fa-chevron-down flex items-center"></i> -->
+          </div>
+        </div>
+        <div class="m-4 relative text-center dropdown-menu">
+          <div class="h-full flex dropdown items-center">
+            <router-link to="/Question" class="w-full md:w-auto text-xl"
+              >常見問題
+            </router-link>
+          </div>
+        </div>
+        <div class="m-4 relative text-center dropdown-menu">
+          <div class="h-full flex dropdown items-center">
+            <router-link to="/Shopping" class="w-full md:w-auto text-xl"
+              >購物車
+            </router-link>
+          </div>
         </div>
       </div>
-      <div
-        class="m-4 relative text-center dropdown-menu"
-        @mouseenter="openDropdown"
-        @mouseleave="closeDropdown"
-      >
-        <div class="h-full flex dropdown items-center">
-          <router-link to="/Coffee_bag" class="w-full md:w-auto text-xl"
-            >線上購物
-          </router-link>
-          <!-- <i class="fa-solid fa-chevron-down flex items-center"></i> -->
-        </div>
-      </div>
-      <div
-        class="m-4 relative text-center dropdown-menu"
-      >
-        <div class="h-full flex dropdown items-center">
-          <router-link to="/Question" class="w-full md:w-auto text-xl"
-            >常見問題
-          </router-link>
-        </div>
-      </div>
-      <div
-        class="m-4 relative text-center dropdown-menu"
-      >
-        <div class="h-full flex dropdown items-center">
-          <router-link to="/Shopping" class="w-full md:w-auto text-xl"
-            >購物車
-          </router-link>
-        </div>
-      </div>
+      <button class="w-full flex justify-end pr-4">
+        <router-link to="/Login/index">
+          <img class="w-8" src="../../image/member.png" alt="" />
+        </router-link>
+      </button>
     </div>
     <div class="border-b-2 border-b-gray-300 mt-2"></div>
     <!-- <dropdownWindow v-if="isOpen" /> -->

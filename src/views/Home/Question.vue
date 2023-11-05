@@ -8,7 +8,7 @@ import footer_1 from "../../components/footer_1.vue";
     <div class="absolute top-0 h-full w-full overflow-y-auto">
       <header_1 />
       <main>
-        <div class="w-full mt-[100px] flex justify-center">
+        <div class="w-full mt-[105px] flex justify-center">
           <div class="w-1/2">
             <div>
               <h1 class="text-3xl py-10">咖啡相關問題</h1>
@@ -40,6 +40,16 @@ import footer_1 from "../../components/footer_1.vue";
                 咖啡包裝通常附帶關於咖啡的香氣描述，例如果香、巧克力、堅果、花香等。
                 這些描述可以作為選擇咖啡的參考。
               </p>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold">沖泡咖啡的方法</h3>
+              <p class="text-blue-400 py-4">
+                手沖咖啡是一種單杯沖泡的方法，使用手濾紙或金屬濾網。 
+              </p>
+              <p class="text-blue-400 py-4">a.碾磨咖啡豆到中等細度。</p>
+              <p class="text-blue-400 py-4">b.將濾紙放在手沖壺或濾壓壺上，加入咖啡粉。 </p>
+              <p class="text-blue-400 py-4">c.緩緩倒入熱水，使咖啡均勻浸泡，等待萃取。 </p>
+              <p class="text-blue-400 py-4">d. 慢慢倒出咖啡，享用。</p>
             </div>
           </div>
         </div>

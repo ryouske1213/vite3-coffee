@@ -1,6 +1,7 @@
 [
     {
         "id": 301,
+        "productId": 1,
         "name":"曼特寧 蘇門答臘",
         "roast":"中深烘培",
         "Origin":"亞洲",
@@ -13,6 +14,7 @@
     },
     {
         "id": 101,
+        "productId": 2,
         "name":"瓜地馬拉 薇薇特南果",
         "roast":"中淺烘培",
         "Origin":"中美洲",
@@ -25,6 +27,7 @@
     },
     {
         "id": 201,
+        "productId": 3,
         "name":"夏威夷 可娜",
         "roast":"中淺烘培",
         "Origin":"大洋洲",
@@ -37,6 +40,7 @@
     },
     {
         "id": 302,
+        "productId": 4,
         "name":"哥倫比亞",
         "roast":"中深烘培",
         "Origin":"南美洲",
@@ -49,6 +53,7 @@
     },
     {
         "id": 102,
+        "productId": 5,
         "name":"耶加雪夫",
         "roast":"中淺烘培",
         "Origin":"非洲",
@@ -61,6 +66,7 @@
     },
     {
         "id": 202,
+        "productId": 6,
         "name":"肯亞 AA",
         "roast":"中淺烘培",
         "Origin":"非洲",
