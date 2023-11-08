@@ -4,6 +4,7 @@ import footer_1 from '../../components/footer_1.vue'
 import Coffee_items from '../../assets/coffee.json'
 import { ref, reactive, onMounted, computed } from 'vue';
 import { useRouter, useRoute } from "vue-router";
+import { useAuthStore } from "../../store/auth";
 
 const items = reactive(Coffee_items);
 const id = ref(1);
@@ -11,11 +12,14 @@ const count = ref(1);
 const currentItem = items.find((item) => item)
 const route = useRoute();
 const router = useRouter();
+const authStore = useAuthStore();
 
 onMounted(() => {
     id.value = route.params.id
+    if(authStore.isAuthenticated == false) {
+        router.push('/Login/index')
+    }
 })
-
 
 function add(){
     count.value++
@@ -42,7 +46,7 @@ function addToCart(){
 </script>
 
 <template>
-    <div class="h-screen w-screen relative overflow-hidden">
+    <div v-if="authStore.isAuthenticated" class="h-screen w-screen relative overflow-hidden">
         <img class=" object-cover opacity-80 -z-50 h-full w-full" src="@/assets/background/購物車背景.png" alt="" />
         <div class=" absolute top-0 h-full w-full overflow-y-auto">
             <header_1 />

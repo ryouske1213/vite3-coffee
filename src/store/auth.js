@@ -1,30 +1,37 @@
-// store/modules/auth.js
+import { defineStore } from "pinia";
 
-import { defineStore } from 'pinia';
+export const useAuthStore = defineStore("auth", {
 
-export const useAuthStore = defineStore({
-  id: 'auth',
   state: () => ({
-    token: null,
+    username: '',
+    password: '',
+    isAuthenticated: false,
   }),
+  
   actions: {
-    login(username, password) {
-        username = 'test'
-        password = '1234'
-      // 在此處向後端發送登錄請求，獲取 JWT
-      // 使用 axios 或其他 HTTP 客戶端庫進行請求
-      // 將 JWT 存儲在狀態中
-      this.token = 'your_jwt_here';
+    setUsername(username) {
+      this.username = username;
     },
-    logout() {
-      // 清除 JWT
-      this.token = null;
+
+    setPassword(password) {
+      this.password = password;
     },
+
+    // login() {
+    //   if(this.isAuthenticated == false) {
+    //     return console.log(this.isAuthenticated)
+    //   }
+    //   if(this.isAuthenticated == true) {
+    //     return console.log(this.isAuthenticated)
+    //   }
+    // },
   },
   getters: {
-    isAuthenticated() {
-      // 根據 JWT 的有效性確定用戶是否已經登錄
-      return !!this.token;
+    getUsername(state) {
+      return state.username;
+    },
+    getPassword(state) {
+      return state.password;
     },
   },
 });

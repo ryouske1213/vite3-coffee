@@ -1,8 +1,20 @@
 <script setup>
 import dropdownWindow from "../components/dropdown.vue";
+import { useAuthStore } from "../store/auth";
+import { useRouter, useRoute } from "vue-router";
 import { ref } from "vue";
 
+const authStore = useAuthStore()
 const isOpen = ref(false);
+const router = useRouter()
+
+
+const loginOut = () => {
+  authStore.isAuthenticated = false
+  router.push('/Login/index')
+}
+
+console.log(authStore.isAuthenticated)
 
 const openDropdown = () => {
   isOpen.value = true;
@@ -62,11 +74,16 @@ const closeDropdown = () => {
           </div>
         </div>
       </div>
-      <button class="w-full flex justify-end pr-4">
-        <router-link to="/Login/index">
-          <img class="w-8" src="../../image/member.png" alt="" />
-        </router-link>
-      </button>
+      <div class="flex items-center mt-4">
+        <button class="w-full px-2">
+          <router-link to="/Login/index">
+            <img class="w-10" src="../../image/member.png" alt="" />
+          </router-link>
+        </button>
+        <button @click="loginOut" class="w-full px-2">
+          <img class="w-10" src="../../image/sign_out_icon.png" alt="">
+        </button>
+      </div>
     </div>
     <div class="border-b-2 border-b-gray-300 mt-2"></div>
     <!-- <dropdownWindow v-if="isOpen" /> -->

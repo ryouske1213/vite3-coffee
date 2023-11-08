@@ -1,28 +1,32 @@
 <script setup>
 import header_1 from "../../components/header_1.vue";
 import footer_1 from "../../components/footer_1.vue";
-import { ref } from "vue";
-import { useAuthStore } from "@/store/auth";
+import { useRouter } from 'vue-router';
+import { ref, useAttrs } from "vue";
+import { useAuthStore } from "../../store/auth";
 
 const authStore = useAuthStore();
+const token = ref("token")
 const username = ref("");
 const password = ref("");
+const router = useRouter()
 
-const login = async () => {
-  await authStore.login(username.value, password.value);
-  // 登錄成功後的導航或其他操作
-};
 
-console.log(authStore)
 
-const logout = () => {
-  authStore.logout();
-  // 登出後的導航或其他操作
-};
+const Login = () => {
+  if(authStore.username == 'test' && authStore.password == '1234') {
+    authStore.isAuthenticated = true
+    sessionStorage.getItem(token.value, authStore.isAuthenticated)
+    router.push('/home')
+  }
+}
+
+
 </script>
 
 <template>
   <div>
+    {{ authStore.login}}
     <div class="bg-home relative h-screen">
       <header_1 />
       <div class="pt-[105px] h-1/2 flex items-center w-full justify-center">
@@ -33,7 +37,7 @@ const logout = () => {
           </div>
           <div class="mt-4">
             <input
-              v-model="username"
+              v-model="authStore.username"
               class="inputColor"
               type="text"
               placeholder="帳號 / 手機號碼"
@@ -42,13 +46,13 @@ const logout = () => {
           </div>
           <div class="mt-4">
             <input
-              v-model="password" class="inputColor" type="text" placeholder="密碼" />
+              v-model="authStore.password" class="inputColor" type="text" placeholder="密碼" />
             <div class="border-b-2 mt-2"></div>
           </div>
           <div
             class="mt-4 w-16 h-10 bg-slate-300 rounded-lg flex justify-center items-center"
           >
-            <button @click="login">登入</button>
+            <button @click="Login">登入</button>
           </div>
         </div>
         <!-- </div> -->

@@ -5,7 +5,7 @@ import card from '../../components/card.vue'
 
 import Coffee_items from '../../assets/coffee.json'
 
-import { reactive, computed, ref, onMounted } from 'vue';
+import { reactive, ref, onMounted } from 'vue';
 
 const items = reactive(Coffee_items)
 const SingleData = ref([])
@@ -46,11 +46,6 @@ onMounted(() => {
         <div class="w-full flex justify-center">
           <card v-for="item in SingleData" :key="item.id" v-bind="item"/>
         </div>
-        <!-- <div class="flex" v-for="item in items" :key="item.id">
-          <div class="w-full flex justify-center">
-            <img class="w-60" :src="item.img" alt="">
-          </div>
-        </div> -->
         <div>
         </div>
         <div class="w-full flex justify-center">
@@ -65,9 +60,6 @@ onMounted(() => {
         <div class="w-full flex justify-center">
           <card v-for="item in Deep" :key="item.id" v-bind="item"/>
         </div>
-        <!-- <div class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-4 justify-items-center">
-          <card v-for="item in items" :key="item.id" v-bind="item" />
-        </div> -->
       </main>
       <footer_1 class="text-black" />
     </div>
