@@ -1,22 +1,23 @@
 <script setup>
 import header_1 from "../../components/header_1.vue";
 import footer_1 from "../../components/footer_1.vue";
-import { useRouter } from 'vue-router';
+import { useRouter, onBeforeRouteLeave } from 'vue-router';
 import { ref, useAttrs } from "vue";
 import { useAuthStore } from "../../store/auth";
 
 const authStore = useAuthStore();
-const token = ref("token")
-const username = ref("");
-const password = ref("");
 const router = useRouter()
 
-
+onBeforeRouteLeave((to, from, next) => {
+  authStore.username = '',
+  authStore.password = ''
+  next()
+})
 
 const Login = () => {
   if(authStore.username == 'test' && authStore.password == '1234') {
     authStore.isAuthenticated = true
-    sessionStorage.getItem(token.value, authStore.isAuthenticated)
+    sessionStorage.setItem('token', authStore.isAuthenticated)
     router.push('/home')
   }
 }
@@ -26,7 +27,6 @@ const Login = () => {
 
 <template>
   <div>
-    {{ authStore.login}}
     <div class="bg-home relative h-screen">
       <header_1 />
       <div class="pt-[105px] h-1/2 flex items-center w-full justify-center">

@@ -3,22 +3,51 @@ import header_1 from "../../components/header_1.vue";
 import cart from "../../components/cart.vue";
 import footer_1 from "../../components/footer_1.vue";
 import Coffee_items from "../../assets/coffee.json";
+import { useRouter, useRoute } from "vue-router";
 import { ref, reactive, computed, onMounted } from "vue";
+
 
 const items = reactive(Coffee_items);
 const carts = ref([cart]);
 const result = ref([]);
+const router = useRouter();
+
 
 onMounted(() => {
   carts.value = JSON.parse(window.localStorage.getItem("carts")) ?? [];
 });
 
 const cartData = computed(() => {
-  return carts.value.map((e) => {
+  // carts.value.forEach((item) => {
+  //   const temp = items.find((e) => item.id == e.id)
+  //   console.log(temp)
+  // })
+  // console.log(mergedArray)
+  // return carts.value.map((e) => {
+  //   const temp = items.find((item) => item.id == e.id);
+  //   return Object.assign({}, e, temp);
+  // });
+  let arrs = [...carts.value];
+
+  let map = new Map();
+  for (let item of arrs) {
+    if (!map.has(item.id)) {
+      map.set(item.id, item);
+    }
+  }
+  let newArr=[...map.values()];
+  JSON.parse(JSON.stringify(newArr))
+
+  return newArr.map((e) => {
+    
     const temp = items.find((item) => item.id == e.id);
     return Object.assign({}, e, temp);
-  });
+
+  })
 });
+
+console.log(cartData)
+
 
 function add(id) {
   carts.value.forEach((item) => {

@@ -2,7 +2,7 @@
 import header_1 from '../../components/header_1.vue'
 import footer_1 from '../../components/footer_1.vue'
 import Coffee_items from '../../assets/coffee.json'
-import { ref, reactive, onMounted, computed } from 'vue';
+import { ref, reactive, onMounted, computed, onBeforeMount } from 'vue';
 import { useRouter, useRoute } from "vue-router";
 import { useAuthStore } from "../../store/auth";
 
@@ -14,11 +14,12 @@ const route = useRoute();
 const router = useRouter();
 const authStore = useAuthStore();
 
+
 onMounted(() => {
     id.value = route.params.id
     if(authStore.isAuthenticated == false) {
         router.push('/Login/index')
-    }
+    }  
 })
 
 function add(){

@@ -1,4 +1,6 @@
-import { defineStore } from "pinia";
+import {
+  defineStore
+} from "pinia";
 
 export const useAuthStore = defineStore("auth", {
 
@@ -7,7 +9,7 @@ export const useAuthStore = defineStore("auth", {
     password: '',
     isAuthenticated: false,
   }),
-  
+
   actions: {
     setUsername(username) {
       this.username = username;
@@ -16,15 +18,6 @@ export const useAuthStore = defineStore("auth", {
     setPassword(password) {
       this.password = password;
     },
-
-    // login() {
-    //   if(this.isAuthenticated == false) {
-    //     return console.log(this.isAuthenticated)
-    //   }
-    //   if(this.isAuthenticated == true) {
-    //     return console.log(this.isAuthenticated)
-    //   }
-    // },
   },
   getters: {
     getUsername(state) {
@@ -33,5 +26,11 @@ export const useAuthStore = defineStore("auth", {
     getPassword(state) {
       return state.password;
     },
+    login(state) {
+      return state.isAuthenticated = true
+    },
+    singOut(state) {
+      return state.isAuthenticated = false
+    }
   },
 });
