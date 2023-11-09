@@ -85,7 +85,7 @@ const closeDropdown = () => {
           <img class="w-10" src="../../public/image/sign-out-icon.png" alt="">
         </button>
         <div>
-          <google />
+          <!-- <google /> -->
         </div>
       </div>
     </div>
