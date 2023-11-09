@@ -1,4 +1,5 @@
 <script setup>
+import google from "../components/googleLogin.vue"
 import dropdownWindow from "../components/dropdown.vue";
 import { useAuthStore } from "../store/auth";
 import { useRouter, useRoute } from "vue-router";
@@ -83,6 +84,9 @@ const closeDropdown = () => {
         <button @click="login" class="w-full pr-4">
           <img class="w-10" src="../../image/sign_out_icon.png" alt="">
         </button>
+        <div>
+          <google />
+        </div>
       </div>
     </div>
     <div class="border-b-2 border-b-gray-300 mt-2"></div>
