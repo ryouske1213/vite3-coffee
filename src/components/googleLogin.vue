@@ -45,7 +45,22 @@ const callback = (response) => {
       data-text="signin_with"
       data-size="large"
     ></div> -->
-    <GoogleLogin :callback="callback"/>
+    <!-- <GoogleLogin :callback="callback"/> -->
+    <div id="g_id_onload"
+     data-client_id="910439474234-oc2mige9dhidjqcq6kuqeq4c0d81maj6.apps.googleusercontent.com"
+     data-context="signin"
+     data-ux_mode="popup"
+     data-login_uri="http://127.0.0.1:5173"
+     data-auto_prompt="false">
+</div>
+
+<div class="g_id_signin"
+     data-type="icon"
+     data-shape="square"
+     data-theme="outline"
+     data-text="signin_with"
+     data-size="large">
+</div>
   </div>
 </template>
 
