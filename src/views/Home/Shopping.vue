@@ -9,24 +9,13 @@ import { ref, reactive, computed, onMounted } from "vue";
 
 const items = reactive(Coffee_items);
 const carts = ref([cart]);
-const result = ref([]);
-const router = useRouter();
-
 
 onMounted(() => {
+
   carts.value = JSON.parse(window.localStorage.getItem("carts")) ?? [];
 });
 
 const cartData = computed(() => {
-  // carts.value.forEach((item) => {
-  //   const temp = items.find((e) => item.id == e.id)
-  //   console.log(temp)
-  // })
-  // console.log(mergedArray)
-  // return carts.value.map((e) => {
-  //   const temp = items.find((item) => item.id == e.id);
-  //   return Object.assign({}, e, temp);
-  // });
   let arrs = [...carts.value];
 
   let map = new Map();
@@ -39,39 +28,34 @@ const cartData = computed(() => {
   JSON.parse(JSON.stringify(newArr))
 
   return newArr.map((e) => {
-    
     const temp = items.find((item) => item.id == e.id);
-    return Object.assign({}, e, temp);
-
+    return temp
   })
 });
 
-console.log(cartData)
-
-
-function add(id) {
-  carts.value.forEach((item) => {
-    if (item.id == id) {
-      item.count++;
+const add = (id) => {
+  cartData.value.forEach((item) => {
+    if(item.id == id) {
+      item.count++
     }
-  });
+  })
 }
 
-function sub(id) {
-  carts.value.forEach((item, index) => {
-    if (item.id == id) {
-      item.count--;
+const sub = (id) => {
+  cartData.value.forEach((item, index) => {
+    if(item.id == id) {
+      item.count--
     }
     if (item.count <= 0) {
       item.count = 1;
       carts.value.splice(index, 1);
     }
-    window.localStorage.setItem("carts", JSON.stringify(carts.value));
-  });
+  })
+  window.localStorage.setItem("carts", JSON.stringify(carts.value));
 }
 
-function del(id) {
-  carts.value.forEach((item, index) => {
+const del = (id) => {
+    cartData.forEach((item, index) => {
     if (item.id == id) {
       carts.value.splice(index, 1);
     }

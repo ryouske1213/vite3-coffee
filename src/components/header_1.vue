@@ -7,12 +7,13 @@ import { ref } from "vue";
 const authStore = useAuthStore()
 const isOpen = ref(false);
 const router = useRouter()
+const pictureState = sessionStorage.getItem('token', authStore.login)
+
+// console.log(pictureState)
 
 const login = () => {
-  authStore.isAuthenticated = false
-  sessionStorage.removeItem('token')
+  sessionStorage.setItem('token', authStore.singOut)
   router.push('/Login/index')
-  console.log(authStore.isAuthenticated)
 }
 
 const openDropdown = () => {
@@ -79,7 +80,7 @@ const closeDropdown = () => {
             <img class="w-10" src="../../image/member.png" alt="" />
           </router-link>
         </button>
-        <button v-if="authStore.isAuthenticated ? authStore.login : authStore.singOut" @click="login" class="w-full pr-4">
+        <button @click="login" class="w-full pr-4">
           <img class="w-10" src="../../image/sign_out_icon.png" alt="">
         </button>
       </div>

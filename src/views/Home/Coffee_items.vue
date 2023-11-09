@@ -6,20 +6,25 @@ import { ref, reactive, onMounted, computed, onBeforeMount } from 'vue';
 import { useRouter, useRoute } from "vue-router";
 import { useAuthStore } from "../../store/auth";
 
+
 const items = reactive(Coffee_items);
-const id = ref(1);
 const count = ref(1);
-const currentItem = items.find((item) => item)
 const route = useRoute();
 const router = useRouter();
 const authStore = useAuthStore();
+const pictureState = sessionStorage.getItem('token', authStore.isAuthenticated)
+
+const id = ref("")
+const currentItem = ref([])
 
 
 onMounted(() => {
     id.value = route.params.id
-    if(authStore.isAuthenticated == false) {
+    currentItem.value = items.find((item) => item.id == id.value) 
+
+    if(pictureState == 'false') {
         router.push('/Login/index')
-    }  
+    } 
 })
 
 function add(){
@@ -47,7 +52,7 @@ function addToCart(){
 </script>
 
 <template>
-    <div v-if="authStore.isAuthenticated" class="h-screen w-screen relative overflow-hidden">
+    <div v-if="pictureState ? 'true' : 'false'" class="h-screen w-screen relative overflow-hidden">
         <img class=" object-cover opacity-80 -z-50 h-full w-full" src="@/assets/background/購物車背景.png" alt="" />
         <div class=" absolute top-0 h-full w-full overflow-y-auto">
             <header_1 />

@@ -9,15 +9,15 @@ const authStore = useAuthStore();
 const router = useRouter()
 
 onBeforeRouteLeave((to, from, next) => {
-  authStore.username = '',
-  authStore.password = ''
+  authStore.username = '';
+  authStore.password = '';
   next()
 })
 
 const Login = () => {
   if(authStore.username == 'test' && authStore.password == '1234') {
     authStore.isAuthenticated = true
-    sessionStorage.setItem('token', authStore.isAuthenticated)
+    sessionStorage.setItem('token', authStore.login)
     router.push('/home')
   }
 }

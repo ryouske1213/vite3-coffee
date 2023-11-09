@@ -9,6 +9,7 @@
         "flavour": "焦糖、堅果、奶油、尾韻蜂蜜焦糖",
         "unit": 200,
         "price": 300,
+        "count": 1,
         "img":"/image/Group_1.png",
         "img1":"/image/Group-1.png"
     },
@@ -22,6 +23,7 @@
         "flavour": "花香、焦糖、黑莓、李子果酸、蜂蜜與烤榛果",
         "unit": 200,
         "price": 350,
+        "count": 1,
         "img":"/image/Group_2.png",
         "img1":"/image/Group-2.png"
     },
@@ -35,6 +37,7 @@
         "flavour": "奶油、麥芽、楓糖、杏仁、黑巧克力、核桃",
         "unit": 200,
         "price": 400,
+        "count": 1,
         "img":"/image/Group_3.png",
         "img1":"/image/Group-3.png"
     },
@@ -48,6 +51,7 @@
         "flavour": "蘋果、核果、堅果、麥茶",
         "unit": 200,
         "price": 450,
+        "count": 1,
         "img":"/image/Group_4.png",
         "img1":"/image/Group-4.png"
     },
@@ -61,6 +65,7 @@
         "flavour": "柑橘、花香、水果與蜂蜜、果酸",
         "unit": 200,
         "price": 500,
+        "count": 1,
         "img":"/image/Group_5.png",
         "img1":"/image/Group-5.png"
     },
@@ -74,6 +79,7 @@
         "flavour": "稻草、檸檬柑橘香、楓糖、核桃、咖啡果肉",
         "unit": 200,
         "price": 500,
+        "count": 1,
         "img":"/image/Group_6.png",
         "img1":"/image/Group-6.png"
     }
