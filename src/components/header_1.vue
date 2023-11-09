@@ -39,7 +39,7 @@ const closeDropdown = () => {
             src="../assets/background/Logo.png"
             alt=""
           />
-          <img class="h-14 pl-2" src="../../image/ordinary coffee.png" alt="" />
+          <img class="h-14 pl-2" src="../../public/image/ordinary-coffee.png" alt="" />
         </router-link>
         <div class="m-4 relative text-center dropdown-menu">
           <div class="h-full flex dropdown items-center">
@@ -78,11 +78,11 @@ const closeDropdown = () => {
       <div class="flex items-center mt-4">
         <button class="w-full pr-4">
           <router-link to="/Login/index">
-            <img class="w-10" src="../../image/member.png" alt="" />
+            <img class="w-10" src="../../public/image/member.png" alt="" />
           </router-link>
         </button>
         <button @click="login" class="w-full pr-4">
-          <img class="w-10" src="../../image/sign_out_icon.png" alt="">
+          <img class="w-10" src="../../public/image/sign-out-icon.png" alt="">
         </button>
         <div>
           <!-- <google /> -->

@@ -8,7 +8,7 @@
           <img class="w-24" src="../assets/background/Logo.png" alt="" />
           <img
             class="h-14 pl-2"
-            src="../../../image/ordinary coffee.png"
+            src="../../public/image/ordinary-coffee.png"
             alt=""
           />
         </div>
