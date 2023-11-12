@@ -1,21 +1,12 @@
 <script setup>
-import google from "../components/googleLogin.vue"
+import Login from '../components/Login.vue'
 import dropdownWindow from "../components/dropdown.vue";
 import { useAuthStore } from "../store/auth";
 import { useRouter, useRoute } from "vue-router";
 import { ref } from "vue";
 
-const authStore = useAuthStore()
+
 const isOpen = ref(false);
-const router = useRouter()
-const pictureState = sessionStorage.getItem('token', authStore.login)
-
-// console.log(pictureState)
-
-const login = () => {
-  sessionStorage.setItem('token', authStore.singOut)
-  router.push('/Login/index')
-}
 
 const openDropdown = () => {
   isOpen.value = true;
@@ -75,19 +66,7 @@ const closeDropdown = () => {
           </div>
         </div>
       </div>
-      <div class="flex items-center mt-4">
-        <button class="w-full pr-4">
-          <router-link to="/Login/index">
-            <img class="w-10" src="../../public/image/member.png" alt="" />
-          </router-link>
-        </button>
-        <button @click="login" class="w-full pr-4">
-          <img class="w-10" src="../../public/image/sign-out-icon.png" alt="">
-        </button>
-        <div>
-          <google />
-        </div>
-      </div>
+      <Login />
     </div>
     <div class="border-b-2 border-b-gray-300 mt-2"></div>
     <!-- <dropdownWindow v-if="isOpen" /> -->
