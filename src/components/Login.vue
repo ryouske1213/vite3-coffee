@@ -1,13 +1,13 @@
 <script setup>
-import GoogleLogin from '../components/googleLogin.vue'
 import { useAuthStore } from "../store/auth";
 import { useRouter, useRoute } from "vue-router";
 import { ref, reactive } from "vue";
+import { googleTokenLogin, CallbackTypes  } from "vue3-google-login"
+
 
 
 const authStore = useAuthStore()
 const router = useRouter()
-const pictureState = sessionStorage.getItem('token', authStore.login)
 
 
 const singIn = () => {
@@ -17,24 +17,20 @@ const singIn = () => {
   router.push('/Login/index')
 
   // google
-  console.log(google.accounts.id.disableAutoSelect());
-  google.accounts.id.disableAutoSelect();
   sessionStorage.removeItem("GoogleToken");
 }
 
-function handleCredentialResponse(response) {
-  sessionStorage.setItem("GoogleToken", response.credential);
-}
 
 const login = () => {
-  google.accounts.id.initialize({
-    client_id:
-      "910439474234-ahak6bt5f0qovg60ktpnpjad3ombn9gk.apps.googleusercontent.com",
-    callback: handleCredentialResponse,
-  });
-  google.accounts.id.renderButton();
-  google.accounts.id.prompt(); // also display the One Tap dialog
-};
+  googleTokenLogin().then((response) => {
+    if(response.access_token) {
+      sessionStorage.setItem('token', authStore.login)
+      sessionStorage.setItem('GoogleToken', response.access_token)
+      console.log("Handle the response", response)
+    }
+  })
+}
+
 </script>
 
 <template>
@@ -52,12 +48,12 @@ const login = () => {
           alt=""
         />
       </button>
-      <!-- <button>
+
+      <button>
         <div @click="login" class="w-10 flex items-center mr-4">
           <img class="" src="../../public/image/google-icon.png" alt="">
         </div>
-      </button> -->
-      <GoogleLogin />
+      </button>
     </div>
   </div>
 
