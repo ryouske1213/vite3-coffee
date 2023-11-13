@@ -1,7 +1,13 @@
 <script setup>
+import { useAuthStore } from "../store/auth";
+
+const authStore = useAuthStore()
 
 function handleCredentialResponse(response) {
-  sessionStorage.setItem("GoogleToken", response.credential);
+  if(response.credential) {
+    sessionStorage.setItem("GoogleToken", response.credential);
+    sessionStorage.setItem('token', authStore.login)
+  }
 }
 
 const login = () => {
