@@ -26,7 +26,6 @@ const login = () => {
     if(response.access_token) {
       sessionStorage.setItem('token', authStore.login)
       sessionStorage.setItem('GoogleToken', response.access_token)
-      console.log("Handle the response", response)
     }
   })
 }
@@ -35,7 +34,7 @@ const login = () => {
 
 <template>
   <div>
-    <div class="flex items-center mt-4">
+    <div class="flex items-center">
       <button class="w-full pr-4">
         <router-link to="/Login/index">
           <img class="w-10" src="../../public/image/member.png" alt="" />

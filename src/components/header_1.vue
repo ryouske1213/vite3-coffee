@@ -1,26 +1,28 @@
 <script setup>
-import Login from '../components/Login.vue'
+import hamburgerMenu from '../components/hamburgerMenu.vue'
+import Login from "../components/Login.vue";
 import dropdownWindow from "../components/dropdown.vue";
 import { useAuthStore } from "../store/auth";
 import { useRouter, useRoute } from "vue-router";
-import { ref } from "vue";
+import { ref, computed } from "vue";
 
+// const WidthMenu = ref('')
 
-const isOpen = ref(false);
+const isOpen = ref(true);
 
-const openDropdown = () => {
-  isOpen.value = true;
-};
-
-const closeDropdown = () => {
-  isOpen.value = false;
-};
+const OpenMenu = () => {
+  isOpen.value = !isOpen.value
+  // console.log(isOpen)
+}
 </script>
 
 <template>
-  <div class="fixed bg-home text-black w-full z-50">
-    <div class="flex justify-around items-center">
-      <div class="w-full md:flex h-20 mx-4 mt-4 md:items-center justify-center">
+  <div class="fixed flex bg-home text-black w-full z-50">
+      <div class="flex items-center md:hidden ml-5">
+        <hamburgerMenu :class="isOpen ? 'OpenMenu' : 'CloseMenu'" @OpenMenu="OpenMenu" :isOpen="isOpen" />
+      </div>
+    <div class="w-full flex justify-between items-center">
+      <div class="md:flex h-20 mx-4 mt-4 md:items-center justify-center">
         <router-link
           to="/Home"
           class="flex justify-center items-center md:flex-nowrap"
@@ -30,39 +32,41 @@ const closeDropdown = () => {
             src="../assets/background/Logo.png"
             alt=""
           />
-          <img class="h-14 pl-2" src="../../public/image/ordinary-coffee.png" alt="" />
+          <img
+            class="h-14 pl-2"
+            src="../../public/image/ordinary-coffee.png"
+            alt=""
+          />
         </router-link>
-        <div class="m-4 relative text-center dropdown-menu">
-          <div class="h-full flex dropdown items-center">
-            <router-link to="/About" class="w-full md:w-auto text-xl"
-              >關於我們
-            </router-link>
+        <div class="hidden md:flex">
+          <div class="m-4 relative text-center dropdown-menu">
+            <div class="h-full flex dropdown items-center">
+              <router-link to="/About" class="w-full md:w-auto text-xl"
+                >關於我們
+              </router-link>
+            </div>
           </div>
-        </div>
-        <div
-          class="m-4 relative text-center dropdown-menu"
-          @mouseenter="openDropdown"
-          @mouseleave="closeDropdown"
-        >
-          <div class="h-full flex dropdown items-center">
-            <router-link to="/Coffee_bag" class="w-full md:w-auto text-xl"
-              >線上購物
-            </router-link>
-            <!-- <i class="fa-solid fa-chevron-down flex items-center"></i> -->
+          <div class="m-4 relative text-center dropdown-menu">
+            <div class="h-full flex dropdown items-center">
+              <router-link to="/Coffee_bag" class="w-full md:w-auto text-xl"
+                >線上購物
+              </router-link>
+              <!-- <i class="fa-solid fa-chevron-down flex items-center"></i> -->
+            </div>
           </div>
-        </div>
-        <div class="m-4 relative text-center dropdown-menu">
-          <div class="h-full flex dropdown items-center">
-            <router-link to="/Question" class="w-full md:w-auto text-xl"
-              >常見問題
-            </router-link>
+          <div class="m-4 relative text-center dropdown-menu">
+            <div class="h-full flex dropdown items-center">
+              <router-link to="/Question" class="w-full md:w-auto text-xl"
+                >常見問題
+              </router-link>
+            </div>
           </div>
-        </div>
-        <div class="m-4 relative text-center dropdown-menu">
-          <div class="h-full flex dropdown items-center">
-            <router-link to="/Shopping" class="w-full md:w-auto text-xl"
-              >購物車
-            </router-link>
+          <div class="m-4 relative text-center dropdown-menu">
+            <div class="h-full flex dropdown items-center">
+              <router-link to="/Shopping" class="w-full md:w-auto text-xl"
+                >購物車
+              </router-link>
+            </div>
           </div>
         </div>
       </div>
@@ -74,21 +78,7 @@ const closeDropdown = () => {
 </template>
 
 <style scoped>
-.dropdown::after {
-  /* border: 2px solid #aaa; */
-  content: "";
-  height: 4px;
-  position: absolute;
-  bottom: -4px;
-  width: 0;
-  left: 0;
-  /* border-bottom: 4px solid #aaa; */
-  background-color: cadetblue;
-  transition: width 0.2s, left 0.2s;
-  transition-timing-function: ease-out;
-}
-.dropdown:hover::after {
-  width: 100%;
-  left: 0;
+.OpenMenu{
+
 }
 </style>
