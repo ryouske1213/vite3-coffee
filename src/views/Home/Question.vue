@@ -9,7 +9,7 @@ import footer_1 from "../../components/footer_1.vue";
       <header_1 />
       <main>
         <div class="w-full mt-[105px] flex justify-center">
-          <div class="w-1/2">
+          <div class="w-4/5">
             <div>
               <h1 class="text-3xl py-10">咖啡相關問題</h1>
               <h3 class="text-xl font-bold">如果咖啡豆受潮該怎辦</h3>

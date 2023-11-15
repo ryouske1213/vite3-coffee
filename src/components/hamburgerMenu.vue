@@ -2,7 +2,6 @@
 import { ref } from "vue";
 const props = defineProps(["isOpen"]);
 
-console.log(props.isOpen);
 </script>
 
 <template>
