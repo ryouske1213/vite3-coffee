@@ -34,7 +34,7 @@ import carouse from "../../components/carouse.vue";
           <div>
             <div>
               <div class="relative flex cursor-pointer">
-                <router-link to="/Coffee_bag">
+                <router-link to="/WesternFood">
                   <img
                     class="w-[600px]"
                     src="@/assets/background/western-food.jpg"

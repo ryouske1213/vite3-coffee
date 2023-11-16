@@ -40,12 +40,12 @@ function sub(){
 }
 
 function addToCart(){
-    const carts = JSON.parse(window.localStorage.getItem("carts","carts")) ?? []
+    const carts = JSON.parse(localStorage.getItem("carts","carts")) ?? []
     carts.push({
         id: id.value,
         count: count.value
     });
-    window.localStorage.setItem("carts", JSON.stringify(carts))
+    localStorage.setItem("carts", JSON.stringify(carts))
     router.push('/Shopping/')
 }
 

@@ -54,4 +54,7 @@ const props = defineProps(["isOpen"]);
   </div>
 </template>
 
-<style></style>
+<style scoped>
+
+
+</style>

@@ -19,7 +19,7 @@ const OpenMenu = () => {
 <template>
   <div class="fixed flex bg-home text-black w-full z-50">
       <div class="flex items-center md:hidden ml-5">
-        <hamburgerMenu :class="isOpen ? 'OpenMenu' : 'CloseMenu'" @OpenMenu="OpenMenu" :isOpen="isOpen" />
+        <hamburgerMenu @OpenMenu="OpenMenu" :isOpen="isOpen" />
       </div>
     <div class="w-full flex justify-between items-center">
       <div class="md:flex h-20 mx-4 mt-4 md:items-center justify-center">
@@ -78,7 +78,5 @@ const OpenMenu = () => {
 </template>
 
 <style scoped>
-.OpenMenu{
 
-}
 </style>

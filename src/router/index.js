@@ -7,6 +7,7 @@ import Coffee_bag from '../views/Home/Coffee_bag.vue'
 import Coffee_items from '../views/Home/Coffee_items.vue'
 import Shopping from '../views/Home/Shopping.vue'
 import Login from '../views/login/index.vue'
+import WesternFood from '../views/Home/WesternFood.vue'
 
 export const router = createRouter({
   history: createWebHistory (),
@@ -50,6 +51,11 @@ export const router = createRouter({
       path: '/Login/index',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/WesternFood',
+      name: 'WesternFood',
+      component: WesternFood
     }
 ]
 })
