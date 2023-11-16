@@ -6,69 +6,62 @@ import Coffee_items from "../../assets/coffee.json";
 import { useRouter, useRoute } from "vue-router";
 import { ref, reactive, computed, onMounted } from "vue";
 
+
 const items = reactive(Coffee_items);
 const carts = ref([cart]);
-const coffeeData = ref([]);
 
 onMounted(() => {
-  carts.value = JSON.parse(localStorage.getItem("carts")) ?? [];
 
-  items.forEach((item) => {
-    carts.value.find((element) => {
-      if (item.id == element.id) {
-        coffeeData.value.push(item);
-      }
-    });
-  });
+  carts.value = JSON.parse(window.localStorage.getItem("carts")) ?? [];
 });
 
+const cartData = computed(() => {
+  let arrs = [...carts.value];
 
-
-
-coffeeData.value.reduce((accumulator, current) => {
-  const existingItem = accumulator.find((item) => item.id === current.id);
-
-  if (existingItem) {
-    // If item with the same ID exists, merge their properties
-    Object.assign(existingItem, current);
-  } else {
-    // If item with the same ID doesn't exist, add it to the accumulator
-    accumulator.push(current);
+  let map = new Map();
+  for (let item of arrs) {
+    if (!map.has(item.id)) {
+      map.set(item.id, item);
+    }
   }
+  let newArr=[...map.values()];
+  JSON.parse(JSON.stringify(newArr))
 
-  return accumulator;
-}, []);
-
+  return newArr.map((e) => {
+    const temp = items.find((item) => item.id == e.id);
+    return temp
+  })
+});
 
 const add = (id) => {
-  coffeeData.value.forEach((item) => {
-    if (item.id == id) {
-      item.count++;
+  cartData.value.forEach((item) => {
+    if(item.id == id) {
+      item.count++
     }
-  });
-};
+  })
+}
 
 const sub = (id) => {
-  coffeeData.value.forEach((item, index) => {
-    if (item.id == id) {
-      item.count--;
+  cartData.value.forEach((item, index) => {
+    if(item.id == id) {
+      item.count--
     }
     if (item.count <= 0) {
       item.count = 1;
       carts.value.splice(index, 1);
     }
-  });
-  localStorage.setItem("carts", JSON.stringify(carts.value));
-};
+  })
+  window.localStorage.setItem("carts", JSON.stringify(carts.value));
+}
 
 const del = (id) => {
-  cartData.forEach((item, index) => {
+    cartData.forEach((item, index) => {
     if (item.id == id) {
       carts.value.splice(index, 1);
     }
   });
-  localStorage.setItem("carts", JSON.stringify(carts.value));
-};
+  window.localStorage.setItem("carts", JSON.stringify(carts.value));
+}
 </script>
 
 <template>
@@ -92,7 +85,7 @@ const del = (id) => {
         <div class="w-full h-[500px] flex justify-center overflow-y-auto">
           <div class="w-1/2 md:w-full lg:w-4/5 xl:w-2/3">
             <cart
-              v-for="item in coffeeData"
+              v-for="item in cartData"
               :key="item"
               v-bind="item"
               @add="add($event)"
