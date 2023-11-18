@@ -12,6 +12,7 @@ const router = useRouter()
 const ButtonFoodMenu = (link) => {
   FoodData.push(link)
   sessionStorage.setItem('Food', JSON.stringify(FoodData))
+  router.push()
 }
 
 

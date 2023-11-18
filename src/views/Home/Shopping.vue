@@ -7,61 +7,18 @@ import { useRouter, useRoute } from "vue-router";
 import { ref, reactive, computed, onMounted } from "vue";
 
 
-const items = reactive(Coffee_items);
-const carts = ref([cart]);
+const items = reactive([]);
+const coffeeItemData = ref()
+
 
 onMounted(() => {
-
-  carts.value = JSON.parse(window.localStorage.getItem("carts")) ?? [];
+  coffeeItemData.value = JSON.parse(localStorage.getItem("currenItem", "currenItem")) ?? []
+  console.log(coffeeItemData.value)
 });
 
-const cartData = computed(() => {
-  let arrs = [...carts.value];
 
-  let map = new Map();
-  for (let item of arrs) {
-    if (!map.has(item.id)) {
-      map.set(item.id, item);
-    }
-  }
-  let newArr=[...map.values()];
-  JSON.parse(JSON.stringify(newArr))
 
-  return newArr.map((e) => {
-    const temp = items.find((item) => item.id == e.id);
-    return temp
-  })
-});
 
-const add = (id) => {
-  cartData.value.forEach((item) => {
-    if(item.id == id) {
-      item.count++
-    }
-  })
-}
-
-const sub = (id) => {
-  cartData.value.forEach((item, index) => {
-    if(item.id == id) {
-      item.count--
-    }
-    if (item.count <= 0) {
-      item.count = 1;
-      carts.value.splice(index, 1);
-    }
-  })
-  window.localStorage.setItem("carts", JSON.stringify(carts.value));
-}
-
-const del = (id) => {
-    cartData.forEach((item, index) => {
-    if (item.id == id) {
-      carts.value.splice(index, 1);
-    }
-  });
-  window.localStorage.setItem("carts", JSON.stringify(carts.value));
-}
 </script>
 
 <template>
@@ -84,14 +41,7 @@ const del = (id) => {
         </div>
         <div class="w-full h-[500px] flex justify-center overflow-y-auto">
           <div class="w-1/2 md:w-full lg:w-4/5 xl:w-2/3">
-            <cart
-              v-for="item in cartData"
-              :key="item"
-              v-bind="item"
-              @add="add($event)"
-              @sub="sub($event)"
-              @del="del($event)"
-            />
+            <cart />
           </div>
         </div>
       </div>
