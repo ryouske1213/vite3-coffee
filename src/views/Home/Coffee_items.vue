@@ -14,9 +14,7 @@ const authStore = useAuthStore();
 const pictureState = sessionStorage.getItem("token", authStore.isAuthenticated);
 
 const id = ref();
-const currentItem = reactive([]);
 const coffeeData = reactive([]);
-const merageData = ref([]);
 
 onMounted(() => {
   id.value = route.params.id;
@@ -41,7 +39,8 @@ function sub() {
 }
 
 function addToCart(item) {
-  const data = JSON.parse(localStorage.getItem("currenItem", "currenItem")) ?? [];
+  const data =
+    JSON.parse(localStorage.getItem("currenItem", "currenItem")) ?? [];
 
   items.forEach((item) => {
     if (item.id == id.value) {
@@ -68,18 +67,13 @@ function addToCart(item) {
   let newArr = [...map.values()];
 
   newArr.map((e) => {
-    if(e.id == item.id) {
-        e.count++
+    if (e.id == item.id) {
+      e.count++;
     }
-  })
-
-  console.log(newArr)
-
-
+  });
 
   localStorage.setItem("currenItem", JSON.stringify(newArr));
-  router.push('/Shopping/')
-
+  router.push("/Shopping/");
 }
 </script>
 

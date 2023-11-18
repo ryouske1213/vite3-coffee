@@ -3,60 +3,39 @@ import { onMounted, ref, reactive } from "vue";
 import Coffee_items from "../assets/coffee.json";
 
 const props = defineProps(["id", "name", "price", "unit", "img1", "count"]);
-const cartslocalStorage = ref([]);
 
-const coffeeData = JSON.parse(localStorage.getItem("currenItem", "currenItem")) ?? []
+const coffeeData = ref([]);
 const items = ref(Coffee_items);
 const coffeeItem = reactive([]);
 
-// console.log(coffeeData.value);
+console.log(props);
 
 onMounted(() => {
-  // items.value.map((item) => {
-  //   coffeeData.value.find((element) => {
-  //     if (item.id == element.id) {
-  //       const temp = {
-  //         id: item.id,
-  //         name: item.name,
-  //         count: element.count,
-  //         price: item.price,
-  //         unit: item.unit,
-  //         img: item.img,
-  //       };
-  //       coffeeItem.push(temp);
-  //     }
-  //   });
-  // });
-
-  // console.log(coffeeItem);
+  coffeeData.value =
+    JSON.parse(localStorage.getItem("currenItem", "currenItem")) ?? [];
 });
 
-const add = (id) => {
-  coffeeData.forEach((item) => {
-    if (item.id == id) {
-      item.count++;
-    }
+const add = () => {
+  coffeeData.value.forEach((item) => {
+    item.count++;
+    console.log(item.count);
   });
 };
 
-const sub = (id) => {
-  coffeeData.forEach((item, index) => {
-    if (item.id == id) {
-      item.count--;
-    }
+const sub = () => {
+  coffeeData.value.forEach((item, index) => {
+    item.count--;
     if (item.count <= 0) {
       item.count = 1;
-      carts.value.splice(index, 1);
+      coffeeData.value.splice(index, 1);
     }
   });
   window.localStorage.setItem("currenItem", JSON.stringify(coffeeData.value));
 };
 
-const del = (id) => {
-  coffeeData.forEach((item, index) => {
-    if (item.id == id) {
-      carts.value.splice(index, 1);
-    }
+const del = () => {
+  coffeeData.value.forEach((item, index) => {
+    coffeeData.value.splice(index, 1);
   });
   window.localStorage.setItem("currenItem", JSON.stringify(coffeeData.value));
 };
