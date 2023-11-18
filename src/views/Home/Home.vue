@@ -20,7 +20,7 @@ import carouse from "../../components/carouse.vue";
         <div class="w-full flex justify-center items-center pt-24 pb-6">
           <div>
             <div class="">
-              <router-link to="/About">
+              <router-link to="/Coffee_bag">
                 <img
                   class="w-[600px]"
                   src="@/assets/background/coffee-drinks.jpg"

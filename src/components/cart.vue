@@ -5,8 +5,6 @@ import Coffee_items from "../assets/coffee.json";
 const props = defineProps(["id", "name", "price", "unit", "img1", "count"]);
 
 const coffeeData = ref([]);
-const items = ref(Coffee_items);
-const coffeeItem = reactive([]);
 
 console.log(props);
 
@@ -37,51 +35,69 @@ const del = (index) => {
 </script>
 
 <template>
-  <div
-    v-for="(item, index) in coffeeData"
-    :key="item.id"
-    class="w-full justify-center"
-  >
-    <div class="md:flex w-full my-2">
-      <div class="md:flex">
-        <div
-          class="w-full md:w-[30%] flex justify-center md:justify-start md:ml-10"
-        >
-          <img :src="item.img" alt="" />
-        </div>
-        <div class="md:w-40 md:flex text-center items-center md:ml-10">
-          {{ item.name }}
-        </div>
+  <div class="max-w-[750px] p-4">
+    <div class="w-full flex border-dashed border-b-2 border-gray-500 border-opacity-20">
+      <div class="w-full md:w-[100px] flex items-center md:mr-10">
+        <p>商品</p>
       </div>
-      <div class="md:flex">
-        <div class="w-full md:flex items-center mr-5">
-          <div class="md:w-40 flex justify-center items-center my-3 md:mr-10">
-            <p class="mr-3">小計</p>
-            <p>{{ item.count * item.price }}</p>
-            <p>TWD</p>
+      <div class="md:w-40 md:flex text-center items-center md:mr-10">
+        <p>價格</p>
+      </div>
+      <div class="md:w-20 flex items-center my-3 md:mr-10">
+        <p>總計</p>
+      </div>
+      <div class="md:w-20 flex items-center my-3 md:mr-10">
+        <p>數量</p>
+      </div>
+    </div>
+    <div
+      v-for="(item, index) in coffeeData"
+      :key="item.id"
+      class="w-full justify-center border-dashed border-b-2 border-gray-500 border-opacity-20"
+    >
+      <div class="md:flex w-full my-2">
+        <div class="md:flex">
+          <div
+            class="w-full md:w-[100px] flex items-center md:mr-10"
+          >
+            <img :src="item.img" alt="" />
+            
           </div>
-          <div class="md:w-40 flex justify-center">
-            <p class="flex justify-center items-center md:w-full pr-4">數量</p>
-            <div class="flex items-center px-2 cursor-pointer">
-              <div @click="sub(item, index)">-</div>
-            </div>
-            <div class="flex px-4">
-              <p class="flex justify-center">{{ item.count }}</p>
-            </div>
-            <div class="flex items-center px-2 cursor-pointer">
-              <div @click="add(item)">+</div>
-            </div>
+          <div class="md:w-40 md:flex text-center items-center md:mr-10">
+            <p>{{ item.name }}</p>
           </div>
-          <div class="flex justify-center items-center my-3 md:pl-10">
-            <div
-              class="bg-slate-800 w-20 h-10 text-white flex items-center justify-center"
-            >
-              <p @click="del(index)">刪除</p>
+        </div>
+        <div class="md:flex">
+          <div class="w-full md:flex items-center mr-5">
+            <div class="md:w-20 flex items-center my-3 md:mr-10">
+              <p>{{ item.count * item.price }}</p>
+              <p>TWD</p>
+            </div>
+            <div class="md:w-20 flex items-center my-3 md:mr-10">
+              <div class="flex items-center px-2 cursor-pointer">
+                <div @click="sub(item, index)">-</div>
+              </div>
+              <div class="flex px-4">
+                <p class="flex justify-center">{{ item.count }}</p>
+              </div>
+              <div class="flex items-center px-2 cursor-pointer">
+                <div @click="add(item)">+</div>
+              </div>
+            </div>
+            <div class="flex justify-center items-center my-3 md:pl-10">
+              <div
+                class="bg-slate-800 w-20 h-10 text-white flex items-center justify-center"
+              >
+                <p @click="del(index)">刪除</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+      <router-link to="/Coffee_bag">
+        <button class="mt-4 px-4 py-1 text-lg font-bold tracking-widest border-2 border-black">繼續購物</button>
+      </router-link>
   </div>
 </template>
 

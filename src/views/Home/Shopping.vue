@@ -1,4 +1,5 @@
 <script setup>
+import CommodityTotel from '../../components/CommodityTotel.vue'
 import header_1 from "../../components/header_1.vue";
 import cart from "../../components/cart.vue";
 import footer_1 from "../../components/footer_1.vue";
@@ -6,19 +7,14 @@ import Coffee_items from "../../assets/coffee.json";
 import { useRouter, useRoute } from "vue-router";
 import { ref, reactive, computed, onMounted } from "vue";
 
-
 const items = reactive([]);
-const coffeeItemData = ref()
-
+const coffeeItemData = ref();
 
 onMounted(() => {
-  coffeeItemData.value = JSON.parse(localStorage.getItem("currenItem", "currenItem")) ?? []
-  console.log(coffeeItemData.value)
+  coffeeItemData.value =
+    JSON.parse(localStorage.getItem("currenItem", "currenItem")) ?? [];
+  console.log(coffeeItemData.value);
 });
-
-
-
-
 </script>
 
 <template>
@@ -31,17 +27,15 @@ onMounted(() => {
     <div class="absolute top-0 h-full w-full overflow-y-auto">
       <header_1 />
       <div class="pt-[105px]">
-        <div class="mt-5">
-          <div class="text-3xl font-bold px-20">
-            <p>Sopping Cart</p>
-          </div>
-          <div class="text-3xl font-bold px-20">
+        <div class="w-full text-center mt-5">
+          <div class="text-xl font-bold px-20">
             <p class="">購物車</p>
           </div>
         </div>
         <div class="w-full h-[500px] flex justify-center overflow-y-auto">
-          <div class="w-1/2 md:w-full lg:w-4/5 xl:w-2/3">
+          <div class="flex">
             <cart />
+            <CommodityTotel />
           </div>
         </div>
       </div>
