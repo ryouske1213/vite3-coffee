@@ -1,5 +1,5 @@
 <script setup>
-import CommodityTotel from '../../components/CommodityTotel.vue'
+import CommodityTotel from "../../components/CommodityTotel.vue";
 import header_1 from "../../components/header_1.vue";
 import cart from "../../components/cart.vue";
 import footer_1 from "../../components/footer_1.vue";
@@ -13,7 +13,6 @@ const coffeeItemData = ref();
 onMounted(() => {
   coffeeItemData.value =
     JSON.parse(localStorage.getItem("currenItem", "currenItem")) ?? [];
-  console.log(coffeeItemData.value);
 });
 </script>
 

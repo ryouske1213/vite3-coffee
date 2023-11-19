@@ -6,8 +6,6 @@ const props = defineProps(["id", "name", "price", "unit", "img1", "count"]);
 
 const coffeeData = ref([]);
 
-console.log(props);
-
 onMounted(() => {
   coffeeData.value =
     JSON.parse(localStorage.getItem("currenItem", "currenItem")) ?? [];
@@ -36,7 +34,9 @@ const del = (index) => {
 
 <template>
   <div class="max-w-[750px] p-4">
-    <div class="w-full flex border-dashed border-b-2 border-gray-500 border-opacity-20">
+    <div
+      class="w-full h-10 flex border-dashed border-b-2 border-gray-500 border-opacity-20"
+    >
       <div class="w-full md:w-[100px] flex items-center md:mr-10">
         <p>商品</p>
       </div>
@@ -57,11 +57,8 @@ const del = (index) => {
     >
       <div class="md:flex w-full my-2">
         <div class="md:flex">
-          <div
-            class="w-full md:w-[100px] flex items-center md:mr-10"
-          >
+          <div class="w-full md:w-[100px] flex items-center md:mr-10">
             <img :src="item.img" alt="" />
-            
           </div>
           <div class="md:w-40 md:flex text-center items-center md:mr-10">
             <p>{{ item.name }}</p>
@@ -74,14 +71,14 @@ const del = (index) => {
               <p>TWD</p>
             </div>
             <div class="md:w-20 flex items-center my-3 md:mr-10">
-              <div class="flex items-center px-2 cursor-pointer">
-                <div @click="sub(item, index)">-</div>
+              <div class="flex items-center cursor-pointer">
+                <div class="cursor-pointer border px-2" @click="sub(item, index)">-</div>
               </div>
-              <div class="flex px-4">
+              <div class="cursor-pointer border px-2">
                 <p class="flex justify-center">{{ item.count }}</p>
               </div>
-              <div class="flex items-center px-2 cursor-pointer">
-                <div @click="add(item)">+</div>
+              <div class="flex items-center cursor-pointer">
+                <div class="cursor-pointer border px-2" @click="add(item)">+</div>
               </div>
             </div>
             <div class="flex justify-center items-center my-3 md:pl-10">
@@ -95,9 +92,13 @@ const del = (index) => {
         </div>
       </div>
     </div>
-      <router-link to="/Coffee_bag">
-        <button class="mt-4 px-4 py-1 text-lg font-bold tracking-widest border-2 border-black">繼續購物</button>
-      </router-link>
+    <router-link to="/Coffee_bag">
+      <button
+        class="mt-4 px-4 py-1 text-lg font-bold tracking-widest border-2 border-black"
+      >
+        繼續購物
+      </button>
+    </router-link>
   </div>
 </template>
 
