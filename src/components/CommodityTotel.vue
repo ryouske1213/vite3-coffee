@@ -7,7 +7,6 @@ let PriceTotel = reactive([]);
 onMounted(() => {
   checkout = JSON.parse(localStorage.getItem("currenItem", "currenItem")) ?? [];
   checkout.forEach((item) => PriceTotel.push(item.count * item.price));
-  console.log(checkout)
 });
 
 const checkoutData = computed(() => {
@@ -17,9 +16,9 @@ const checkoutData = computed(() => {
 </script>
 
 <template>
-  <div class="h-full">
+  <div>
     <div
-      class="min-w-[350px] max-w-[750px] h-[500px] border-l p-4 border-gray-500 border-opacity-25"
+      class="min-w-[350px] max-w-[750px] md:h-[500px] md:border-l p-4 pb-20 border-gray-500 border-opacity-25"
     >
       <div class="h-full">
         <div

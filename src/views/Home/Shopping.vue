@@ -31,16 +31,16 @@ onMounted(() => {
             <p class="">購物車</p>
           </div>
         </div>
-        <div class="w-full h-[500px] flex justify-center overflow-y-auto">
-          <div class="flex">
+        <div class="w-full h-[500px] flex justify-center">
+          <div class="md:flex">
             <cart />
             <CommodityTotel />
           </div>
         </div>
       </div>
     </div>
-    <footer_1 class="w-full fixed bottom-0" />
   </div>
+    <footer_1 class="w-full h-full mt-0" />
 </template>
 
 <style scoped></style>

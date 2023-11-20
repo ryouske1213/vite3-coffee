@@ -35,7 +35,7 @@ const del = (index) => {
 <template>
   <div class="max-w-[750px] p-4">
     <div
-      class="w-full h-10 flex border-dashed border-b-2 border-gray-500 border-opacity-20"
+      class="hidden md:w-full md:h-10 md:flex md:border-dashed md:border-b-2 md:border-gray-500 md:border-opacity-20"
     >
       <div class="w-full md:w-[100px] flex items-center md:mr-10">
         <p>商品</p>
@@ -66,11 +66,11 @@ const del = (index) => {
         </div>
         <div class="md:flex">
           <div class="w-full md:flex items-center mr-5">
-            <div class="md:w-20 flex items-center my-3 md:mr-10">
+            <div class="md:w-20 flex justify-center items-center my-3 md:mr-10">
               <p>{{ item.count * item.price }}</p>
               <p>TWD</p>
             </div>
-            <div class="md:w-20 flex items-center my-3 md:mr-10">
+            <div class="md:w-20 flex justify-center items-center my-3 md:mr-10">
               <div class="flex items-center cursor-pointer">
                 <div class="cursor-pointer border px-2" @click="sub(item, index)">-</div>
               </div>
@@ -94,7 +94,7 @@ const del = (index) => {
     </div>
     <router-link to="/Coffee_bag">
       <button
-        class="mt-4 px-4 py-1 text-lg font-bold tracking-widest border-2 border-black"
+        class="w-full justify-center md:w-auto mt-4 px-4 py-1 text-lg font-bold tracking-widest border-2 border-black"
       >
         繼續購物
       </button>

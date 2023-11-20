@@ -2,11 +2,15 @@
 import header_1 from "../../components/header_1.vue";
 import footer_1 from "../../components/footer_1.vue";
 import { useRouter, onBeforeRouteLeave } from 'vue-router';
-import { ref, useAttrs } from "vue";
+import { ref, useAttrs, onMounted } from "vue";
 import { useAuthStore } from "../../store/auth";
 
 const authStore = useAuthStore();
 const router = useRouter()
+
+onMounted(() => {
+  sessionStorage.getItem('token')
+})
 
 onBeforeRouteLeave((to, from, next) => {
   authStore.username = '';

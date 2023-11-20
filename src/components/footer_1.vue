@@ -5,7 +5,7 @@
     <div class="w-full flex justify-center">
       <div class="w-[700px] md:flex md:items-center mt-5">
         <div class="flex items-center justify-center">
-          <img class="w-24" src="../assets/background/Logo.png" alt="" />
+          <img class="w-16 md:w-24" src="../assets/background/Logo.png" alt="" />
           <img
             class="h-14 pl-2"
             src="../../public/image/ordinary-coffee.png"

@@ -13,7 +13,7 @@ const CarouselData = reactive(carousel)
   <Carousel :wrap-around="true" :autoplay="3000" :transition="1000">
     <Slide v-for="slide in CarouselData" :key="slide">
       <!-- <div class="carousel__item">{{ slide.img }}</div> -->
-      <img class="w-[600px]" :src="`/image/${slide.img}`" alt="">
+      <img class="w-[400px] md:w-[600px]" :src="`/image/${slide.img}`" alt="">
       <!-- <img src="" alt=""> -->
     </Slide>
 
@@ -25,16 +25,6 @@ const CarouselData = reactive(carousel)
 </template>
 
 <style>
-/* .carousel__item {
-  min-height: 100px;
-  width: 100%;
-  font-size: 20px;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 .carousel__slide {
   padding: 10px;
 }

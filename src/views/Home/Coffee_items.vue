@@ -11,13 +11,19 @@ const count = ref(1);
 const route = useRoute();
 const router = useRouter();
 const authStore = useAuthStore();
-const pictureState = sessionStorage.getItem("token", authStore.isAuthenticated);
-
+let pictureState = ref()
 const id = ref();
 const coffeeData = reactive([]);
 
 onMounted(() => {
+  pictureState.value = sessionStorage.getItem("token", authStore.isAuthenticated)
+  console.log(pictureState.value)
+
   id.value = route.params.id;
+
+  if (pictureState.value == 'false') {
+    router.push("/Login/index");
+  }
 
   items.forEach((item) => {
     if (item.id == id.value) {
