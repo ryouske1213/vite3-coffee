@@ -1,32 +1,40 @@
 <script setup>
 import header_1 from "../../components/header_1.vue";
 import footer_1 from "../../components/footer_1.vue";
-import { useRouter, onBeforeRouteLeave } from 'vue-router';
+import { useRouter, onBeforeRouteLeave } from "vue-router";
 import { ref, useAttrs, onMounted } from "vue";
 import { useAuthStore } from "../../store/auth";
 
 const authStore = useAuthStore();
-const router = useRouter()
+const router = useRouter();
+const LoginToken = ref();
 
 onMounted(() => {
-  sessionStorage.getItem('token')
-})
+  sessionStorage.getItem("token");
+});
 
 onBeforeRouteLeave((to, from, next) => {
-  authStore.username = '';
-  authStore.password = '';
-  next()
-})
+  authStore.username = "";
+  authStore.password = "";
+  next();
+});
 
 const Login = () => {
-  if(authStore.username == 'test' && authStore.password == '1234') {
-    authStore.isAuthenticated = true
-    sessionStorage.setItem('token', authStore.login)
-    router.push('/home')
+  if (authStore.username == "test" && authStore.password == "1234") {
+    authStore.isAuthenticated = true;
+    sessionStorage.setItem("token", authStore.login);
+    router.push("/home");
   }
-}
+};
 
-
+const callback = (response) => {
+  if (response) {
+    authStore.isAuthenticated = true;
+    sessionStorage.setItem("GoogleToken", response.credential);
+    sessionStorage.setItem("token", authStore.login);
+    router.push("/home");
+  }
+};
 </script>
 
 <template>
@@ -50,7 +58,11 @@ const Login = () => {
           </div>
           <div class="mt-4">
             <input
-              v-model="authStore.password" class="inputColor" type="text" placeholder="密碼" />
+              v-model="authStore.password"
+              class="inputColor"
+              type="text"
+              placeholder="密碼"
+            />
             <div class="border-b-2 mt-2"></div>
           </div>
           <div
@@ -58,6 +70,7 @@ const Login = () => {
           >
             <button @click="Login">登入</button>
           </div>
+          <GoogleLogin class="mt-4" :callback="callback" />
         </div>
         <!-- </div> -->
       </div>

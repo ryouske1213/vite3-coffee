@@ -17,7 +17,6 @@ const coffeeData = reactive([]);
 
 onMounted(() => {
   pictureState.value = sessionStorage.getItem("token", authStore.isAuthenticated)
-  console.log(pictureState.value)
 
   id.value = route.params.id;
 
