@@ -4,6 +4,7 @@ import footer_1 from "../../components/footer_1.vue";
 import card from '../../components/card.vue'
 
 import Coffee_items from '../../assets/coffee.json'
+import Coffee from '../../store/api'
 
 import { reactive, ref, onMounted } from 'vue';
 
@@ -11,16 +12,20 @@ const items = reactive(Coffee_items)
 const SingleData = ref([])
 const Zhongpai = ref([])
 const Deep = ref([])
+const isCoffeeData = ref()
 
-onMounted(() => {
-  items.filter((item) => {
+onMounted(async () => {
+  isCoffeeData.value = await Coffee()
+  isCoffeeData.value.forEach((item) => console.log(item))
+  console.log(isCoffeeData.value)
+  isCoffeeData.value.filter((item) => {
     if(item.id > 100 && item.id < 200) {
       SingleData.value.push(item)
     }
     if(item.id > 200 && item.id < 300) {
       Zhongpai.value.push(item)
     }
-    if(item.id > 301) {
+    if(item.id >= 301) {
       Deep.value.push(item)
     }
   })

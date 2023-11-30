@@ -5,8 +5,9 @@ import Coffee_items from "../../assets/coffee.json";
 import { ref, reactive, onMounted, computed, onBeforeMount } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useAuthStore } from "../../store/auth";
+import Coffee from '../../store/api'
 
-const items = reactive(Coffee_items);
+// const items = reactive(Coffee_items);
 const count = ref(1);
 const route = useRoute();
 const router = useRouter();
@@ -14,8 +15,11 @@ const authStore = useAuthStore();
 let pictureState = ref()
 const id = ref();
 const coffeeData = reactive([]);
+let useCoffee = ref()
 
-onMounted(() => {
+onMounted(async() => {
+  useCoffee.value = await Coffee()
+  console.log(useCoffee.value)
   pictureState.value = sessionStorage.getItem("token", authStore.isAuthenticated)
 
   id.value = route.params.id;
@@ -24,7 +28,7 @@ onMounted(() => {
     router.push("/Login/index");
   }
 
-  items.forEach((item) => {
+  useCoffee.value.forEach((item) => {
     if (item.id == id.value) {
       return coffeeData.push(item);
     }
@@ -47,7 +51,7 @@ function addToCart(item) {
   const data =
     JSON.parse(localStorage.getItem("currenItem", "currenItem")) ?? [];
 
-  items.forEach((item) => {
+    useCoffee.value.forEach((item) => {
     if (item.id == id.value) {
       data.push({
         id: item.id,
@@ -116,7 +120,6 @@ function addToCart(item) {
               </p>
             </div>
           </div>
-
           <div class="flex py-12 justify-evenly flex-wrap">
             <div class="flex relative">
               <div

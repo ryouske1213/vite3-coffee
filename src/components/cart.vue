@@ -1,8 +1,7 @@
 <script setup>
 import { onMounted, ref, reactive } from "vue";
-import Coffee_items from "../assets/coffee.json";
 
-const props = defineProps(["id", "name", "price", "unit", "img1", "count"]);
+const props = defineProps(["id", "name", "price", "unit", "img", "count"]);
 
 const coffeeData = ref([]);
 

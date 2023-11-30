@@ -10,8 +10,9 @@ import { ref, reactive, computed, onMounted } from "vue";
 const items = reactive([]);
 const coffeeItemData = ref();
 
-onMounted(() => {
+onMounted(async () => {
   coffeeItemData.value = JSON.parse(localStorage.getItem("currenItem", "currenItem")) ?? [];
+  console.log(coffeeItemData.value)
 });
 </script>
 
