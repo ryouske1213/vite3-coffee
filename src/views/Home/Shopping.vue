@@ -11,8 +11,7 @@ const items = reactive([]);
 const coffeeItemData = ref();
 
 onMounted(() => {
-  coffeeItemData.value =
-    JSON.parse(localStorage.getItem("currenItem", "currenItem")) ?? [];
+  coffeeItemData.value = JSON.parse(localStorage.getItem("currenItem", "currenItem")) ?? [];
 });
 </script>
 
@@ -40,7 +39,7 @@ onMounted(() => {
       </div>
     </div>
   </div>
-    <footer_1 class="w-full h-full mt-0" />
+  <footer_1 class="w-full h-full mt-0" />
 </template>
 
 <style scoped></style>
