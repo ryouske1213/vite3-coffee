@@ -102,7 +102,7 @@ function addToCart(item) {
       class="absolute top-0 h-full w-full overflow-y-auto"
     >
       <header_1 />
-      <div class="flex h-full items-center flex-wrap justify-evenly pt-[110px]">
+      <div class="flex lg:h-full items-center flex-wrap justify-evenly pt-[110px]">
         <div>
           <img :src="item.img" />
         </div>
