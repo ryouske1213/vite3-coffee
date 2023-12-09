@@ -16,8 +16,6 @@ const isCoffeeData = ref()
 
 onMounted(async () => {
   isCoffeeData.value = await Coffee()
-  isCoffeeData.value.forEach((item) => console.log(item))
-  console.log(isCoffeeData.value)
   isCoffeeData.value.filter((item) => {
     if(item.id > 100 && item.id < 200) {
       SingleData.value.push(item)
@@ -50,7 +48,7 @@ onMounted(async () => {
         </div>
         <div class="w-full flex justify-center">
           <div class="md:flex md:justify-center">
-            <card v-for="item in SingleData" :key="item.id" v-bind="item"/>
+            <card v-for="item in SingleData" :key="item.id" v-bind="item" />
           </div>
         </div>
         <div>
