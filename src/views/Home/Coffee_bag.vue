@@ -1,21 +1,19 @@
 <script setup>
+import { useGetAPI } from '../../store/api'
 import header_1 from '../../components/header_1.vue'
 import footer_1 from "../../components/footer_1.vue";
 import card from '../../components/card.vue'
 
-import Coffee_items from '../../assets/coffee.json'
-import Coffee from '../../store/api'
-
 import { reactive, ref, onMounted } from 'vue';
 
-const items = reactive(Coffee_items)
 const SingleData = ref([])
 const Zhongpai = ref([])
 const Deep = ref([])
 const isCoffeeData = ref()
+const store = useGetAPI();
 
 onMounted(async () => {
-  isCoffeeData.value = await Coffee()
+  isCoffeeData.value = await store.isCoffeeData
   isCoffeeData.value.filter((item) => {
     if(item.id > 100 && item.id < 200) {
       SingleData.value.push(item)

@@ -4,27 +4,49 @@ import footer_1 from "../../components/footer_1.vue";
 import { useRouter, onBeforeRouteLeave } from "vue-router";
 import { ref, useAttrs, onMounted } from "vue";
 import { useAuthStore } from "../../store/auth";
+// import {apiGet} from "../../store/api";
+import axios from 'axios'
 
 const authStore = useAuthStore();
 const router = useRouter();
 const LoginToken = ref();
+const isUser = ref();
+const username = ref("");
+const password = ref("");
 
-onMounted(() => {
+onMounted(async () => {
   sessionStorage.getItem("token");
+  // isUser.value = await apiGet.isUserData(username.value, password.value);
 });
 
-onBeforeRouteLeave((to, from, next) => {
-  authStore.username = "";
-  authStore.password = "";
-  next();
-});
+// onBeforeRouteLeave((to, from, next) => {
+//   authStore.username = "";
+//   authStore.password = "";
+//   next();
+// });
 
-const Login = () => {
-  if (authStore.username == "test" && authStore.password == "1234") {
-    authStore.isAuthenticated = true;
-    sessionStorage.setItem("token", authStore.login);
-    router.push("/home");
+const Login = async () => {
+  const User = {
+    username: username.value,
+    password: password.value
   }
+  isUser.value = await apiGet.isUserData(username.value, password.value)
+  console.log(isUser.value)
+  // isUser.value.find((item) => {
+  //   if (item.username == username.value || item.password == password.value) {
+  //     authStore.isAuthenticated = true;
+  //     sessionStorage.setItem("token", authStore.login);
+  //     router.push("/home");
+  //     console.log(item.username, item.password);
+  //   } else {
+  //     alert('帳號密碼錯誤')
+  //   }
+  // });
+  // if (authStore.username == "test" && authStore.password == "1234") {
+  //   authStore.isAuthenticated = true;
+  //   sessionStorage.setItem("token", authStore.login);
+  //   router.push("/home");
+  // }
 };
 
 const callback = (response) => {
@@ -49,7 +71,7 @@ const callback = (response) => {
           </div>
           <div class="mt-4">
             <input
-              v-model="authStore.username"
+              v-model="username"
               class="inputColor"
               type="text"
               placeholder="帳號 / 手機號碼"
@@ -58,7 +80,7 @@ const callback = (response) => {
           </div>
           <div class="mt-4">
             <input
-              v-model="authStore.password"
+              v-model="password"
               class="inputColor"
               type="text"
               placeholder="密碼"

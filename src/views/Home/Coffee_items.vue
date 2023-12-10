@@ -5,7 +5,7 @@ import Coffee_items from "../../assets/coffee.json";
 import { ref, reactive, onMounted, computed, onBeforeMount } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useAuthStore } from "../../store/auth";
-import Coffee from '../../store/api'
+import { useGetAPI } from '../../store/api'
 
 // const items = reactive(Coffee_items);
 const count = ref(1);
@@ -16,10 +16,11 @@ let pictureState = ref()
 const id = ref();
 const coffeeData = reactive([]);
 let useCoffee = ref()
+const store = useGetAPI();
 
 onMounted(async() => {
-  useCoffee.value = await Coffee()
-  console.log(useCoffee.value)
+  useCoffee.value = await store.isCoffeeData
+  
   pictureState.value = sessionStorage.getItem("token", authStore.isAuthenticated)
 
   id.value = route.params.id;
@@ -84,9 +85,14 @@ function addToCart(item) {
   localStorage.setItem("currenItem", JSON.stringify(newArr));
   router.push("/Shopping/");
 }
+
+const aaa = async () => {
+  console.log(await GetAPI.isCoffeeData())
+}
 </script>
 
 <template>
+  <div @click="aaa">123123123</div>
   <div
     v-if="pictureState ? 'true' : 'false'"
     class="h-screen w-screen relative overflow-hidden"

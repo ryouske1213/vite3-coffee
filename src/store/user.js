@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import axios from "axios";
 
-export const useGetAPI = defineStore('getAPI', {
+export const useGetAPI = defineStore('PostAPI', {
   state: () => ({
     data: null,
     username: String,
@@ -19,15 +19,4 @@ export const useGetAPI = defineStore('getAPI', {
       }
     }
   },
-  getters: {
-    async isCoffeeData() {
-      try {
-        const { data } = await axios.get("http://localhost:8080/api/coffeeData/Inquire");
-        this.data = data
-        return data;
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  }
 })
