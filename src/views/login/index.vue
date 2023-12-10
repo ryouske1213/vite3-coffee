@@ -2,10 +2,11 @@
 import header_1 from "../../components/header_1.vue";
 import footer_1 from "../../components/footer_1.vue";
 import { useRouter, onBeforeRouteLeave } from "vue-router";
-import { ref, useAttrs, onMounted } from "vue";
+import { ref, useAttrs, onMounted, watch } from "vue";
 import { useAuthStore } from "../../store/auth";
-// import {apiGet} from "../../store/api";
+import { usePostUser } from "../../store/user";
 import axios from 'axios'
+
 
 const authStore = useAuthStore();
 const router = useRouter();
@@ -13,6 +14,7 @@ const LoginToken = ref();
 const isUser = ref();
 const username = ref("");
 const password = ref("");
+const store = usePostUser()
 
 onMounted(async () => {
   sessionStorage.getItem("token");
@@ -27,27 +29,40 @@ onMounted(async () => {
 
 const Login = async () => {
   const User = {
-    username: username.value,
+    username: username.value, 
     password: password.value
   }
-  isUser.value = await apiGet.isUserData(username.value, password.value)
-  console.log(isUser.value)
-  // isUser.value.find((item) => {
-  //   if (item.username == username.value || item.password == password.value) {
-  //     authStore.isAuthenticated = true;
-  //     sessionStorage.setItem("token", authStore.login);
-  //     router.push("/home");
-  //     console.log(item.username, item.password);
-  //   } else {
-  //     alert('帳號密碼錯誤')
-  //   }
-  // });
-  // if (authStore.username == "test" && authStore.password == "1234") {
-  //   authStore.isAuthenticated = true;
-  //   sessionStorage.setItem("token", authStore.login);
-  //   router.push("/home");
-  // }
+  
+  isUser.value = await store.isUserData(User)
+  
+  try {
+    if(isUser.value == 0) {
+    alert('請輸入正確帳號密碼')
+    }
+    if(isUser.value[0].username == username.value && isUser.value[0].password == password.value) {
+      authStore.isAuthenticated = true;
+      sessionStorage.setItem("token", authStore.login);
+      router.push("/home");
+    }
+
+  } catch {
+    store.showError = false
+    // alert('請輸入帳號密碼')
+  }
 };
+
+// watch(() => [username.value, password.value], (newValue, oldVale) => {
+//   if(newValue[0]){
+//     store.usernameShowError = false
+//   } else {
+//     store.usernameShowError = true
+//   }
+//   if(newValue[1]){
+//     store.passwordShowError = false
+//   } else {
+//     store.passwordShowError = true
+//   }
+// })
 
 const callback = (response) => {
   if (response) {
@@ -77,6 +92,7 @@ const callback = (response) => {
               placeholder="帳號 / 手機號碼"
             />
             <div class="border-b-2 mt-2"></div>
+            <p class="text-red-800 text-sm" v-show="store.usernameShowError">請輸入帳號</p>
           </div>
           <div class="mt-4">
             <input
@@ -86,6 +102,7 @@ const callback = (response) => {
               placeholder="密碼"
             />
             <div class="border-b-2 mt-2"></div>
+            <p class="text-red-800 text-sm" v-show="store.passwordShowError">請輸入密碼</p>
           </div>
           <div
             class="mt-4 w-16 h-10 bg-slate-300 rounded-lg flex justify-center items-center"

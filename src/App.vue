@@ -1,5 +1,11 @@
 <script setup>
+import { useAuthStore } from "./store/auth";
+import {onMounted} from 'vue'
+const authStore = useAuthStore();
 
+onMounted(() => {
+  sessionStorage.setItem("token", authStore.isAuthenticated);
+})
 </script>
 
 <template>

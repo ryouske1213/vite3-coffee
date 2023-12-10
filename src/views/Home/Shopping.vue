@@ -12,7 +12,6 @@ const coffeeItemData = ref();
 
 onMounted(async () => {
   coffeeItemData.value = JSON.parse(localStorage.getItem("currenItem", "currenItem")) ?? [];
-  console.log(coffeeItemData.value)
 });
 </script>
 
