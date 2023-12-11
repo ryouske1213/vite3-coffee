@@ -18,7 +18,7 @@ const checkoutData = computed(() => {
 <template>
   <div>
     <div
-      class="min-w-[350px] max-w-[750px] md:h-[500px] md:border-l p-4 pb-20 border-gray-500 border-opacity-25"
+      class="min-w-[320px] max-w-[750px] lg:h-[500px] lg:border-l p-4 pb-20 border-gray-500 border-opacity-25"
     >
       <div class="h-full">
         <div

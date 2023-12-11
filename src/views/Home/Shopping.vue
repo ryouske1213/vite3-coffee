@@ -22,7 +22,7 @@ onMounted(async () => {
       src="@/assets/background/購物車背景.png"
       alt=""
     />
-    <div class="absolute top-0 h-full w-full overflow-y-auto">
+    <div class="absolute inset-0 h-full w-full overflow-y-auto">
       <header_1 />
       <div class="pt-[105px]">
         <div class="w-full text-center mt-5">
@@ -31,7 +31,7 @@ onMounted(async () => {
           </div>
         </div>
         <div class="w-full h-[500px] flex justify-center">
-          <div class="md:flex">
+          <div class="lg:flex">
             <cart />
             <CommodityTotel />
           </div>
@@ -39,7 +39,7 @@ onMounted(async () => {
       </div>
     </div>
   </div>
-  <footer_1 class="w-full h-full mt-0" />
+  <footer_1 class="w-full h-full xs:mt-0" />
 </template>
 
 <style scoped></style>

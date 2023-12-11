@@ -32,20 +32,20 @@ const del = (index) => {
 </script>
 
 <template>
-  <div class="max-w-[750px] p-4">
+  <div class="min-w-[320px] max-w-[750px] p-4">
     <div
-      class="hidden md:w-full md:h-10 md:flex md:border-dashed md:border-b-2 md:border-gray-500 md:border-opacity-20"
+      class="hidden lg:w-full lg:h-10 lg:flex lg:border-dashed lg:border-b-2 lg:border-gray-500 lg:border-opacity-20"
     >
-      <div class="w-full md:w-[100px] flex items-center md:mr-10">
+      <div class="w-full lg:w-[100px] flex items-center lg:mr-10">
         <p>商品</p>
       </div>
-      <div class="md:w-40 md:flex text-center items-center md:mr-10">
+      <div class="lg:w-40 lg:flex text-center items-center lg:mr-10">
         <p>價格</p>
       </div>
-      <div class="md:w-20 flex items-center my-3 md:mr-10">
+      <div class="lg:w-20 flex items-center my-3 lg:mr-10">
         <p>總計</p>
       </div>
-      <div class="md:w-20 flex items-center my-3 md:mr-10">
+      <div class="lg:w-20 flex items-center my-3 lg:mr-10">
         <p>數量</p>
       </div>
     </div>
@@ -54,22 +54,22 @@ const del = (index) => {
       :key="item.id"
       class="w-full justify-center border-dashed border-b-2 border-gray-500 border-opacity-20"
     >
-      <div class="md:flex w-full my-2">
-        <div class="md:flex">
-          <div class="w-full md:w-[100px] flex items-center md:mr-10">
+      <div class="lg:flex w-full my-2">
+        <div class="lg:flex">
+          <div class="w-full lg:w-[100px] flex items-center lg:mr-10">
             <img :src="item.img" alt="" />
           </div>
-          <div class="md:w-40 md:flex text-center items-center md:mr-10">
+          <div class="lg:w-40 lg:flex text-center items-center lg:mr-10">
             <p>{{ item.name }}</p>
           </div>
         </div>
-        <div class="md:flex">
-          <div class="w-full md:flex items-center mr-5">
-            <div class="md:w-20 flex justify-center items-center my-3 md:mr-10">
+        <div class="lg:flex">
+          <div class="w-full lg:flex items-center mr-5">
+            <div class="lg:w-20 flex justify-center items-center my-3 lg:mr-10">
               <p>{{ item.count * item.price }}</p>
               <p>TWD</p>
             </div>
-            <div class="md:w-20 flex justify-center items-center my-3 md:mr-10">
+            <div class="lg:w-20 flex justify-center items-center my-3 lg:mr-10">
               <div class="flex items-center cursor-pointer">
                 <div class="cursor-pointer border px-2" @click="sub(item, index)">-</div>
               </div>
@@ -80,7 +80,7 @@ const del = (index) => {
                 <div class="cursor-pointer border px-2" @click="add(item)">+</div>
               </div>
             </div>
-            <div class="flex justify-center items-center my-3 md:pl-10">
+            <div class="flex justify-center items-center my-3 lg:pl-10">
               <div
                 class="bg-slate-800 w-20 h-10 text-white flex items-center justify-center"
               >
@@ -93,7 +93,7 @@ const del = (index) => {
     </div>
     <router-link to="/Coffee_bag">
       <button
-        class="w-full justify-center md:w-auto mt-4 px-4 py-1 text-lg font-bold tracking-widest border-2 border-black"
+        class="w-full justify-center lg:w-auto mt-4 px-4 py-1 text-lg font-bold tracking-widest border-2 border-black"
       >
         繼續購物
       </button>
